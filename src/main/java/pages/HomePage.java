@@ -119,18 +119,6 @@ public class HomePage {
 	@FindBy(xpath = "//h2[text()='Do You Have Any Questions']")
 	WebElement doYouHaveAnyQus;
 
-	/*
-	 * 1) is the logo displayed? 2) What is the title? 3) Header validation for
-	 * rest: All the button like Home, courses, Mentors, Alumni, About Us, Login
-	 * enroll Now button, phone number, Id. You have to find out the web element and
-	 * click them to see if they are redirecting to the page. 4) When they redirect,
-	 * please validate title, current url and header if present. 5) Validate Footer
-	 * for Home, courses, Mentors, Alumni, About Us, Login, enroll Now button 6)
-	 * Scroll down and go to Contact Us. Create method for
-	 * "fill out the form and submit, validate the success or error message" and
-	 * test
-	 */
-
 	public void logoValidation() {
 		pause(3000);
 		elementDisplayed(logoElement);
