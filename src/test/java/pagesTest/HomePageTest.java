@@ -7,44 +7,44 @@ import baseUtil.BaseClass;
 public class HomePageTest extends BaseClass {
 
 	@Test
-	public void homepageFullmenutester() {
-		homePage.homePageFullMenuValidation();
+	public void home_page_Menu_Section() {
+		homePage.home_page_Menu_Section();
 	}
 
 	@Test
-	public void homePageHeaderTester() {
-		homePage.ValidationOfHomePageHeader();
+	public void home_page_Validation() {
+		homePage.home_Page_Full_Menu_Validation();
 	}
 
 	@Test
-	public void homepageFooterTester() {
-		homePage.validationOfHomePageFooter();
+	public void home_page_Footer() {
+		homePage.home_page_Footer_part();
 	}
 
 	@Test
-	public void phoneAndEmail() {
-		homePage.validationOfPhoneNumberAndEmail();
+	public void phone_And_Email() {
+		homePage.validation_Of_PhoneNumber_And_Email();
 	}
 
 	@Test
-	public void contactUs() {
-		homePage.validationOfContactUsForm();
+	public void contact_Us() {
+		homePage.validation_Of_Contact_Us_Form();
 	}
 
 	@Test
 	public void logo() {
-		homePage.logoValidation();
+		homePage.logo_Validation();
 
 	}
 
 	@Test
 	public void title() {
-		homePage.titleValidation();
+		homePage.title_validation();
 	}
 
 	@Test
-	public void loginV() {
-		homePage.validationOfLogin();
+	public void login() {
+		homePage.login();
 	}
 
 }
