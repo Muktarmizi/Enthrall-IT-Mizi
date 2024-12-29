@@ -1,11 +1,5 @@
 package pages;
 
-import static common.CommonActions.clickElement;
-import static common.CommonActions.elementEnabled;
-import static common.CommonActions.pause;
-import static common.CommonActions.verifyCurrentUrl;
-import static common.CommonActions.verifyTitle;
-
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -96,11 +90,27 @@ public class Login {
 
 	@FindBy(xpath = "//h1[text()= 'Dashboard']")
 	WebElement headerDashboardElement;
+	
+	@FindBy(xpath = "//span[text()='Automation']")
+	WebElement automationElement;
 
-	public void directLogin() {
+	@FindBy(xpath = "//button[text()='Mouse Hover Action']")
+	WebElement mouseHoverElement;
+
+	@FindBy(xpath = "//button[text()='Enroll Now']")
+	WebElement enroll;
+
+
+	public void login() {
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
+		verifyTitle(driver, "Enthrall IT");
+		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
+		validationOfOtherHeader(loginHeaderText, "Login into your account");
+		pause(2000);
+		clickElement(loginElement);
+		pause(2000);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
 		inputTextThenClickTab(userpassElement, "Password$1");
 		clickElement(loginbuttonElement);
@@ -109,8 +119,8 @@ public class Login {
 
 	}
 
-	public void logInProcess() {
-
+	public void landing_on_dashboard_click_returnSite_back_to_Dashboard_Then_logout() {
+		
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
@@ -138,6 +148,18 @@ public class Login {
 		clickElement(logOut);
 		pause(2000);
 
+	}
+	
+	public void landing_on_Automation_Then_Click_Enroll_Now() {
+        pause(2000);
+		clickElement(loginElement);
+		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(userpassElement, "Password$1");
+		clickElement(loginbuttonElement);
+		clickElement(automationElement);
+		pause(2000);
+		switchToChildWindow(driver, enroll);
+		pause(2000);
 	}
 
 }

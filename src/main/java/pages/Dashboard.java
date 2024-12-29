@@ -381,8 +381,21 @@ public class Dashboard {
 	@FindBy(id = "//button[@id='submit_button']")
 	WebElement submitEnrollPagElement;
 
-	public void dashbordSidebar() {
-		login.directLogin();
+	@FindBy(xpath = "//h3[text()='Automation']")
+	WebElement AutomationHeaderText;
+
+	@FindBy(xpath = "//td[text()='Muktar mizi']")
+	WebElement findmyName;
+
+	@FindBy(xpath = "//td[text()='9293306564']")
+	WebElement scroll_down_to_Find_MyName;
+
+	@FindBy(xpath = "//h1[text()='Automated the Table']")
+	WebElement table_Header;
+
+	public void click_All_dashboard_Side_Bar() {
+
+		//login.login();
 		pause(2000);
 		clickElement(profile);
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/profile/");
@@ -461,17 +474,22 @@ public class Dashboard {
 
 	}
 
-	public void automationFullValidation() {
+	public void click_on_Automation_And_validate() {
+
+		//login.login();
 		pause(2000);
 		clickElement(automation);
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/dashboard/automation/");
 		verifyTitle(driver, "Enthrall IT - Dashboard");
+		pause(2000);
+		validationOfHeader(AutomationHeaderText, "Automation");
+		pause(2000);
 		validationOfSubHeader(automationSubHeader, "Please choose from below");
 		pause(2000);
 
 	}
 
-	public void automationHappyPath() {
+	public void happy_path_to_Automation_then_Click_EnrollNow_Then_input_All_Information() {
 
 		pause(2000);
 		clickElement(loginElement);
@@ -563,8 +581,7 @@ public class Dashboard {
 
 	}
 
-	public void logIntoEnrollNowHappypath() {
-
+	public void landing_on_Automation_Then_Click_Enroll_Now() {
 		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
@@ -576,9 +593,10 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void firstNamevalidation() {
+	public void first_Name_validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
-		logIntoEnrollNowHappypath();
 		verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
 		inputTextThenClickTab(firstnameElement, "123456788980909009");
 		pause(2000);
@@ -595,9 +613,10 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void lastNamevalidation() {
+	public void last_Name_validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
-		logIntoEnrollNowHappypath();
 		verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
 		pause(2000);
 		inputTextThenClickTab(lastElement, "12548599890878787");
@@ -616,9 +635,9 @@ public class Dashboard {
 
 	}
 
-	public void selectProfessionvalidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void select_Profession_validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectProfession, selecProfessionList);
 		pause(2000);
@@ -631,10 +650,9 @@ public class Dashboard {
 
 	}
 
-	public void selectCoursevalidation() {
+	public void select_Course_validation() {
 
-		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectCourse, selectCourseList);
 		pause(2000);
@@ -647,10 +665,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void PhoneNumberValidation() {
+	public void Phone_Number_Validation() {
 
-		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "10");
 		pause(2000);
@@ -670,14 +687,13 @@ public class Dashboard {
 		pause(2000);
 		inputTextThenClickTab(phoneNum, "+9293306564");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
-				"Must be a valid Phone Number.");
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
 		pause(2000);
 	}
 
-	public void emailAddressValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void email_Address_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "74");
 		inputTextThenClickTab(emailAdd, "$#@%$#$^%$&^$&$^&^");
 		pause(2000);
@@ -685,9 +701,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void passwordValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void password_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		verifyLengthOfTheFieldContent(passWordAdd, Attribute.MAX_LENGTH, "74");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "$#@%$#$^%$&^$&$^&^");
@@ -759,9 +775,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void chooseFileValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void choose_File_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		clickElement(submitEnrollPagElement);
 		pause(2000);
 		verifyErrorMessageUnderTheField(chooseFileRequiredField, Attribute.INNER_HTML,
@@ -769,9 +785,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void choosePhotoValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void choose_Photo_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		clickElement(submitEnrollPagElement);
 		pause(2000);
 		verifyErrorMessageUnderTheField(choosePhotoRequiredField, Attribute.INNER_HTML,
@@ -779,10 +795,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void birthYearValidation() {
+	public void birth_Year_Validation() {
 
-		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectDropdown(selectBirthYear, "Select Birth Year");
 		pause(2000);
@@ -794,10 +809,10 @@ public class Dashboard {
 
 	}
 
-	public void birthmonthValidation() {
+	public void birth_Month_Validation() {
 
-		pause(2000);
-		logIntoEnrollNowHappypath();
+		// pause(2000);
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectBirthMonth, selectBirthMonthList);
 		pause(2000);
@@ -810,9 +825,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void birthDayValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void birth_Day_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectDropdown(selectBirthDay, "Select Birth Date");
 		pause(2000);
@@ -823,9 +838,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void homeAddressValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void home_Address_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		inputTextThenClickTab(homeAddressL1, "90i31-4813840138041034801");// one more
 		pause(2000);
@@ -834,9 +849,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void cityValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void city_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		inputTextThenClickTab(cityElement, "90i31-4813840138041034801");
 		pause(2000);
@@ -844,9 +859,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void statevalidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void state_validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		selectDropdown(stateElement, "90i31-4813840138041034801");
 		pause(2000);
@@ -854,9 +869,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void zipCodeValidation() {
-		pause(2000);
-		logIntoEnrollNowHappypath();
+	public void zip_Code_Validation() {
+
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "5");
 		inputTextThenClickTab(zipCodElement, "ksmd;lsmaf;lmad;lfma");
@@ -871,10 +886,10 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void signatureValidation() {
+	public void signature_Validation() {
 
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		landing_on_Automation_Then_Click_Enroll_Now();
 		pause(2000);
 		inputTextThenClickTab(signtureElement, "1293u2193u2193u912321%%%%%%");
 		pause(2000);
@@ -883,9 +898,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void checkBoxClickVlaidation() {
+	public void double_Click_on_Check_box_Then_Click_on_Agree() {
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		doubleClickActionAccept(driver, doublElement);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
@@ -896,9 +911,9 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void clickBackButton() {
+	public void click_Right_click_Action_Then_click_Back_Button_Then_submit_Accept() {
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		rightClickActionAccept(driver, rightClickButtonElement, clickBackButton);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
@@ -908,9 +923,9 @@ public class Dashboard {
 
 	}
 
-	public void clickCancelButton() {
+	public void click_Right_click_Action_Then_click_Back_Button_Then_submit_Dismiss() {
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
 		rightClickActionAccept(driver, rightClickButtonElement, canceleElement);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
@@ -919,16 +934,34 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void validationOfEnrollnowPage() {
+	public void back_From_Enroll_now_page_Then_find_Your_Name_From_The_Table() {
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		// landing_on_Automation_Then_Click_Enroll_Now();
+		rightClickActionAccept(driver, rightClickButtonElement, clickBackButton);
+		pause(2000);
+		Alert alert = driver.switchTo().alert();
+		System.out.println("\nAlert Text: " + alert.getText());
+		alert.accept();
+		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_Find_MyName);
+		pause(2000);
+		verifyTextOfTheWebElement(table_Header, "Automated the Table");
+		pause(2000);
+		findYourNameFromTheTable(findmyName, "Muktar mizi");
 		pause(2000);
 
 	}
 
-	public void enrollPageFinalValidation() {
+	public void validation_Of_Enroll_now_Page() {
 		pause(2000);
-		logIntoEnrollNowHappypath();
+		landing_on_Automation_Then_Click_Enroll_Now();
+		pause(2000);
+
+	}
+
+	public void enroll_Now_Page_Validation() {
+		pause(2000);
+		landing_on_Automation_Then_Click_Enroll_Now();
 		verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
 		inputTextThenClickTab(firstnameElement, "123456788980909009");
 		pause(2000);

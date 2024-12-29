@@ -7,135 +7,160 @@ import baseUtil.BaseClass;
 public class DashboardTest extends BaseClass {
 
 	@Test
-	public void dashboardTester() {
-		dashboard.dashbordSidebar();
+	public void dashboard_side_bar_Validation() {
+		homePage.login();
+		dashboard.click_All_dashboard_Side_Bar();
+		dashboard.click_on_Automation_And_validate();
 	}
 
 	@Test
-	public void automationTetser() {
-		dashboard.automationFullValidation();
-
+	public void happy_path_Tetster() {
+		dashboard.happy_path_to_Automation_then_Click_EnrollNow_Then_input_All_Information();
 	}
 
 	@Test
-	public void happypathTetster() {
-		dashboard.automationHappyPath();
-	}
-
-	@Test
-	public void loginhappypathTester() {
-		dashboard.logIntoEnrollNowHappypath();
+	public void login_happy_path_Tester() {
+		dashboard.landing_on_Automation_Then_Click_Enroll_Now();
 	}
 	
 	@Test
-	public void enrollNowFinalvalidationTester() {
-		dashboard.enrollPageFinalValidation();
-	}
-
+	public void enroll_now_Page_Validation() {
+	     homePage.landing_on_Automation_Then_Click_Enroll_Now();
+	     dashboard.first_Name_validation();
+	     dashboard.last_Name_validation();
+	     dashboard.select_Profession_validation();
+	     dashboard.select_Course_validation();
+	     dashboard.Phone_Number_Validation();
+	     dashboard.email_Address_Validation();
+	     dashboard.password_Validation();
+	     dashboard.choose_File_Validation();
+	     dashboard.choose_Photo_Validation();
+	     dashboard.birth_Year_Validation();
+	     dashboard.birth_Month_Validation();
+	     dashboard.birth_Day_Validation();
+	     dashboard.home_Address_Validation();
+	     dashboard.city_Validation();
+	     dashboard.state_validation();
+	     dashboard.zip_Code_Validation();
+	     dashboard.signature_Validation();
+	     
+	   }
+	
 	@Test
+	public void double_Click_Check_Box_And_Right_Click_Action() {
+		
+		homePage.landing_on_Automation_Then_Click_Enroll_Now();
+		dashboard.double_Click_on_Check_box_Then_Click_on_Agree();
+		dashboard.click_Right_click_Action_Then_click_Back_Button_Then_submit_Accept();
+		dashboard.click_Right_click_Action_Then_click_Back_Button_Then_submit_Dismiss();
+		dashboard.back_From_Enroll_now_page_Then_find_Your_Name_From_The_Table();
+	}
+	
+    @Test
 	public void firstnameTester() {
-		dashboard.firstNamevalidation();
+		dashboard.first_Name_validation();
 	}
 
 	@Test
 	public void lastNameTester() {
-		dashboard.lastNamevalidation();
+		dashboard.last_Name_validation();
 	}
 
 	@Test
 	public void selectProfessionvalidation() {
-		dashboard.selectProfessionvalidation();
+		dashboard.select_Profession_validation();
 	}
 
 	@Test
 	public void selectCoursevalidation() {
-		dashboard.selectCoursevalidation();
+		dashboard.select_Course_validation();
 	}
 
 	@Test
 	public void phoneNumbervalidation() {
-		dashboard.PhoneNumberValidation();
+		dashboard.Phone_Number_Validation();
 	}
 
 	@Test
 	public void emaiValidationTester() {
-		dashboard.emailAddressValidation();
+		dashboard.email_Address_Validation();
 	}
 
 	@Test
 	public void chooseFileTester() {
-		dashboard.chooseFileValidation();
+		dashboard.choose_File_Validation();
 	}
 
 	@Test
 	public void choosePhotoTester() {
-
+     dashboard.choose_Photo_Validation();
 	}
 
 	@Test
 	public void birthYearTester() {
-		dashboard.birthYearValidation();
+		dashboard.birth_Year_Validation();
 	}
 
 	@Test
 	public void birthMonthTetser() {
-		dashboard.birthmonthValidation();
+		dashboard.birth_Month_Validation();
 	}
 
 	@Test
 	public void birthDayTester() {
-		dashboard.birthDayValidation();
+		dashboard.birth_Day_Validation();
 	}
 
 	@Test
 	public void homeAddressTester() {
-		dashboard.homeAddressValidation();
+		dashboard.home_Address_Validation();
 	}
 
 	@Test
 	public void cityTester() {
-		dashboard.cityValidation();
+		dashboard.city_Validation();
 	}
 
 	@Test
 	public void stateTester() {
-		dashboard.statevalidation();
+		dashboard.state_validation();
 	}
 
 	@Test
 	public void zipCodeTester() {
-		dashboard.zipCodeValidation();
+		dashboard.zip_Code_Validation();
 
 	}
 
 	@Test
 	public void signatureTester() {
-		dashboard.signatureValidation();
+		dashboard.signature_Validation();
 	}
 
 	@Test
 	public void checkBoxTester() {
-		dashboard.checkBoxClickVlaidation();
+		dashboard.double_Click_on_Check_box_Then_Click_on_Agree();
 	}
 
 	@Test
 	public void clickBackButtonTester() {
-		dashboard.clickBackButton();
+		dashboard.click_Right_click_Action_Then_click_Back_Button_Then_submit_Accept();
+
 	}
 
 	@Test
 	public void clickCancelButton() {
-		dashboard.clickCancelButton();
+		dashboard.click_Right_click_Action_Then_click_Back_Button_Then_submit_Dismiss();
 	}
 
 	@Test
 	public void enrollNowPageValidationTester() {
-		dashboard.validationOfEnrollnowPage();
+		dashboard.validation_Of_Enroll_now_Page();
 	}
 
 	@Test
 	public void backButtonvalidation() {
-		dashboard.clickBackButton();
+		dashboard.back_From_Enroll_now_page_Then_find_Your_Name_From_The_Table();
 	}
 
 }

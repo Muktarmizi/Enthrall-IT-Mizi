@@ -119,30 +119,55 @@ public class HomePage {
 	@FindBy(xpath = "//h2[text()='Do You Have Any Questions']")
 	WebElement doYouHaveAnyQus;
 
-	public void logoValidation() {
+	@FindBy(xpath = "//button[@class='close']")
+	WebElement somethingWentWrongElement;
+
+	@FindBy(xpath = "//button[text()='×']")
+	WebElement somethingWentWrongalert;
+
+	@FindBy(xpath = "//*[text()='Login into your account']")
+	WebElement loginHeaderTextElement;
+
+	@FindBy(id = "login-link")
+	WebElement loginElement;
+
+	@FindBy(xpath = "//span[text()='Automation']")
+	WebElement automationElement;
+
+	@FindBy(xpath = "//button[text()='Mouse Hover Action']")
+	WebElement mouseHoverElement;
+
+	@FindBy(xpath = "//button[text()='Enroll Now']")
+	WebElement enroll;
+
+	@FindBy(xpath = "//input[@id='emails' and @class='form-control form-control-lg']")
+	WebElement useremailElement;
+
+	@FindBy(xpath = "//*[@id='password' and @class='form-control form-control-lg']")
+	WebElement userpassElement;
+
+	@FindBy(xpath = "//*[@id='login' and@class='btn btn-lg px-5']")
+	WebElement loginbuttonElement;
+	//// button[@id='login']
+
+	public void logo_Validation() {
 		pause(3000);
 		elementDisplayed(logoElement);
 		clickElement(logoElement);
 		pause(3000);
 	}
 
-	public void titleValidation() {
-		pause(3000);
-		verifyTitle(driver, "Enthrall IT");
-		pause(3000);
-
-	}
-
-	public void validationOfLogin() {
+	public void title_validation() {
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
-     
+		validationOfHeader(loginHeaderTextElement, "Login into your account");
+
 	}
 
-	public void ValidationOfHomePageHeader() {
+	public void home_page_Menu_Section() {
 
 		pause(2000);
 		elementEnabled(homeHeader);
@@ -183,7 +208,7 @@ public class HomePage {
 
 	}
 
-	public void validationOfHomePageFooter() {
+	public void home_page_Footer_part() {
 
 		pause(2000);
 		elementEnabled(homeFooter);
@@ -224,7 +249,7 @@ public class HomePage {
 
 	}
 
-	public void validationOfPhoneNumberAndEmail() {
+	public void validation_Of_PhoneNumber_And_Email() {
 
 		pause(4000);
 		verifyTextOfTheWebElement(phoneNumber, "+1 929-301-6028");
@@ -233,7 +258,7 @@ public class HomePage {
 
 	}
 
-	public void validationOfContactUsForm() {
+	public void validation_Of_Contact_Us_Form() {
 
 		pause(2000);
 		clickElement(homeHeader);
@@ -258,24 +283,56 @@ public class HomePage {
 		pause(2000);
 		clickElement(sendNowofcontactUs);
 		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, ScrolldownToContactUS);
+		verifyErrorMessageTopOfThePage(somethingWentWrongalert, Attribute.INNER_HTML, "Something went wrong.");
+		pause(2000);
+		clickElement(somethingWentWrongElement);
 
 	}
 
-	public void homePageFullMenuValidation() {
+	public void landing_on_Automation_Then_Click_Enroll_Now() {
+		pause(2000);
+		clickElement(loginElement);
+		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(userpassElement, "Password$1");
+		clickElement(loginbuttonElement);
+		clickElement(automationElement);
+		pause(2000);
+		switchToChildWindow(driver, enroll);
+		pause(2000);
+	}
 
-		logoValidation();
+	public void login() {
 		pause(2000);
-		validationOfPhoneNumberAndEmail();
+		elementEnabled(loginHeader);
+		clickElement(loginHeader);
+		verifyTitle(driver, "Enthrall IT");
+		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
+		validationOfOtherHeader(loginHeaderText, "Login into your account");
 		pause(2000);
-		titleValidation();
+		clickElement(loginElement);
 		pause(2000);
-		validationOfLogin();
+		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(userpassElement, "Password$1");
+		clickElement(loginbuttonElement);
+		verifyTitle(driver, "Enthrall IT - Dashboard");
+		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
+
+	}
+
+	public void home_Page_Full_Menu_Validation() {
+
+		logo_Validation();
 		pause(2000);
-		ValidationOfHomePageHeader();
+		validation_Of_PhoneNumber_And_Email();
 		pause(2000);
-		validationOfHomePageFooter();
+		title_validation();
 		pause(2000);
-		validationOfContactUsForm();
+		home_page_Menu_Section();
+		pause(2000);
+		home_page_Footer_part();
+		pause(2000);
+		validation_Of_Contact_Us_Form();
 		pause(2000);
 
 	}

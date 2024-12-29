@@ -8,14 +8,19 @@ import pages.Login;
 public class LoginPageTest extends BaseClass {
 
 	@Test
-	public void loginTester() {
+	public void login_to_dashBoard_And_Logout() {
 
-		login.logInProcess();
+		login.landing_on_dashboard_click_returnSite_back_to_Dashboard_Then_logout();
 	}
 
 	@Test
-	public void loginAllTester() {
-		login.directLogin();
-
+	public void login_to_Dashboard() {
+		login.login();
 	}
+
+	@Test
+	public void landing_on_Enroll_Now() {
+		login.landing_on_Automation_Then_Click_Enroll_Now();
+	}
+
 }
