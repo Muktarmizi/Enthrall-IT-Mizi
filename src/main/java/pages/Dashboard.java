@@ -233,7 +233,10 @@ public class Dashboard {
 
 	@FindBy(xpath = "//input[@id='id_password']")
 	WebElement passWordAdd;
-
+	
+	@FindBy(xpath = "//*[@id='password_error']")
+	WebElement passErrorRequired;
+	
 	@FindBy(xpath = "//select[@id='id_gender']")
 	WebElement Gender;
 
@@ -425,7 +428,7 @@ public class Dashboard {
 
 
 	
-	public void step_one_landing_on_dashboard_Then_click_All_Side_Bar() {
+	public void step_one_landing_on_dashboard_then_click_all_side_bar() {
 
 		// Profile.
 		pause(2000);
@@ -522,7 +525,7 @@ public class Dashboard {
 
 	}
 
-	public void validation_Of_Automation_Page() {
+	public void validation_of_automation_page() {
 
 		pause(2000);
 		clickElement(loginElement);
@@ -543,7 +546,7 @@ public class Dashboard {
 
 	}
 
-	public void happy_path_to_Automation_Then_Click_EnrollNow_Then_input_All_Information() {
+	public void happy_path_to_automation_then_click_enroll_now_then_input_all_information() {
 
 		pause(2000);
 		clickElement(logoElement);
@@ -640,7 +643,7 @@ public class Dashboard {
 
 	}
 
-	public void first_Name_validation() {
+	public void first_name_validation() {
 
 		pause(2000);
 		verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
@@ -659,7 +662,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void last_Name_validation() {
+	public void last_name_validation() {
 		
 		pause(2000);
 		verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
@@ -679,7 +682,7 @@ public class Dashboard {
 
 	}
 
-	public void select_Profession_validation() {
+	public void select_profession_validation() {
 
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectProfession, selecProfessionList);
@@ -693,7 +696,7 @@ public class Dashboard {
 
 	}
 
-	public void select_Course_validation() {
+	public void select_course_validation() {
 		
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectCourse, selectCourseList);
@@ -706,7 +709,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void Phone_Number_Validation() {
+	public void phone_number_validation() {
 
 		pause(2000);
 		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "10");
@@ -729,7 +732,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void email_Address_Validation() {
+	public void email_address_validation() {
 
 		verifyLengthOfTheFieldContent(emailAdd, Attribute.MAX_LENGTH, "74");
 		pause(2000);
@@ -739,67 +742,73 @@ public class Dashboard {
 		pause(2000);
 	}
 	
-	public void password_Validation() {
+	public void password_validation() {
         
 		pause(2000);
 		verifyLengthOfTheFieldContent(passWordAdd, Attribute.MAX_LENGTH, "74");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "$#@%$#$^%$&^$&$^&^");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "aBcds"); // Minimum of 8 characters.
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Must contain a minimum of 8 characters.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Must contain a minimum of 8 characters.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "shuvoMirza");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "aaaaaaaaaaaaaaaa");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "JHDJLFNDSJLNFKLDSNFKSNKSLNGSKNGKF");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo79aaaaaaaaaa");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "821371029379102T*&%&*%&*");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "121837892748913743");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,	"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,	"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange^(^*^**");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange5234354364");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
+		inputTextThenClickTab(passWordAdd, "shuvoMirza#1");
+		pause(2000);
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Password cannot contain First Name, Last Name, or email.");
+		pause(2000);
+		
+		
 	}
 
-	public void choose_File_Validation() {
+	public void choose_file_validation() {
 		pause(2000);
 		clickElement(submitEnrollPagElement);
 		pause(2000);
@@ -807,7 +816,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void choose_Photo_Validation() {
+	public void choose_photo_validation() {
 
 		pause(2000);
 		clickElement(submitEnrollPagElement);
@@ -816,7 +825,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void birth_Year_Validation() {
+	public void birth_year_validation() {
 		
 		pause(2000);
 		selectDropdown(selectBirthYear, "Select Birth Year");
@@ -828,7 +837,7 @@ public class Dashboard {
 
 	}
 
-	public void birth_Month_Validation() {
+	public void birth_month_validation() {
 
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectBirthMonth, selectBirthMonthList);
@@ -841,7 +850,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void birth_Day_Validation() {
+	public void birth_day_validation() {
 
 		pause(2000);
 		selectDropdown(selectBirthDay, "Select Birth Date");
@@ -852,7 +861,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void home_Address_Validation() {
+	public void home_address_validation() {
 		verifyLengthOfTheFieldContent(homeAddressL1, Attribute.MAX_LENGTH, "60");
 		pause(3000);
 		inputTextThenClickTab(homeAddressL1, "#$$%%^^#$%$%%(*^*(^(*^(*");
@@ -866,7 +875,7 @@ public class Dashboard {
 		pause(2000);
 		}
 
-	public void city_Validation() {
+	public void city_validation() {
 		
 		pause(2000);
 		inputTextThenClickTab(cityElement, "90i31-4813840138041034801");
@@ -884,7 +893,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void zip_Code_Validation() {
+	public void zip_code_validation() {
 
 		pause(2000);
 		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "5");
@@ -898,7 +907,7 @@ public class Dashboard {
 		pause(2000);
 	}
 
-	public void signature_Validation() {
+	public void signature_validation() {
 
 		pause(2000);
 		inputTextThenClickTab(signtureElement, "1293u2193u2193u912321%%%%%%");
@@ -907,7 +916,7 @@ public class Dashboard {
 		pause(2000);
 	}
         
-	public void double_Click_To_The_terms_And_Condition() {
+	public void double_click_to_the_terms_and_condition() {
 		
 		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
@@ -921,7 +930,7 @@ public class Dashboard {
 
 	}
 	
-	public void step_one_click_Right_click_Action_Then_click_Back_Button_Then_submit_Accept() {
+	public void step_one_click_right_click_action_then_click_back_button_then_submit_accept() {
 
 		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
@@ -940,7 +949,7 @@ public class Dashboard {
 	}
 	
 
-	public void step_two_click_Right_click_Action_Then_click_Cancel_Button_Then_submit_Dismiss() {
+	public void step_two_click_right_click_action_then_click_cancel_button_then_submit_dismiss() {
 		
 		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
@@ -957,7 +966,7 @@ public class Dashboard {
 
 	
 
-	public void step_three_Return_Back_To_Enroll_now_page_Then_find_Your_Name_From_The_Table() {
+	public void step_three_return_back_To_enroll_now_page_then_find_your_name_from_the_table() {
 		
 		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
@@ -976,7 +985,7 @@ public class Dashboard {
 
 	}
 
-	public void landing_on_Automation_To_find_Your_Name_From_The_Table() {
+	public void landing_on_automation_to_find_your_name_from_the_table() {
 		
       	pause(2000);
 		clickElement(loginElement);
@@ -994,61 +1003,7 @@ public class Dashboard {
 
 	}
 
-
-	public void dynamic_Pop_up() {
-		
-		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-		Set<String> widSet = driver.getWindowHandles();
-		if (widSet.size() > 1) {
-
-			driver.switchTo().window("handleBack()");
-			pause(5000);
-			try {
-				WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
-				if (elementonpopupElement.isDisplayed()) {
-					pause(3000);
-					elementonpopupElement.click();
-					pause(4000);
-				}
-			}
-
-			catch (NoSuchElementException ne) {
-				System.out.println("Alert is displayed but colud not click on ok button");
-
-			}
-			pause(5000);
-
-		}
-
-	}
-
-	public void try_to_click_OK() {
-		
-
-		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
-		pause(2000);
-		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
-		pause(2000);
-		Set<String> widSet = driver.getWindowHandles();
-		if (widSet.size() > 1) {
-			driver.switchTo().window("handleBack()");
-			pause(5000);
-		}
-		WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
-
-		if (elementonpopupElement.isDisplayed()) {
-			pause(3000);
-			elementonpopupElement.click();
-			pause(4000);
-		}
-		driver.switchTo().alert().accept();
-		pause(3000);
-
-	}
-
-	
-	public void Enroll_Now_Page_Error_Message_And_required_field_Validation() {
+	public void enroll_now_page_error_message_and_required_field_validation() {
 		
 			pause(2000);
 			verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
@@ -1059,7 +1014,7 @@ public class Dashboard {
 			pause(2000);
 			verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
 			verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,"First Name is a required field.");
-           pause(2000);
+            pause(2000);
 			inputTextThenClickTab(firstnameElement, "'Shuvo-Mirza'");
             pause(2000);
 			verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
@@ -1226,5 +1181,61 @@ public class Dashboard {
 			pause(2000);
 		
 		}
+	
+	
+
+/*	public void dynamic_pop_up() {
+		
+		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+		Set<String> widSet = driver.getWindowHandles();
+		if (widSet.size() > 1) {
+
+			driver.switchTo().window("handleBack()");
+			pause(5000);
+			try {
+				WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
+				if (elementonpopupElement.isDisplayed()) {
+					pause(3000);
+					elementonpopupElement.click();
+					pause(4000);
+				}
+			}
+
+			catch (NoSuchElementException ne) {
+				System.out.println("Alert is displayed but colud not click on ok button");
+
+			}
+			pause(5000);
+
+		}
+
+	}
+
+	public void try_to_click_oK() {
+		
+
+		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
+		pause(2000);
+		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
+		pause(2000);
+		Set<String> widSet = driver.getWindowHandles();
+		if (widSet.size() > 1) {
+			driver.switchTo().window("handleBack()");
+			pause(5000);
+		}
+		WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
+
+		if (elementonpopupElement.isDisplayed()) {
+			pause(3000);
+			elementonpopupElement.click();
+			pause(4000);
+		}
+		driver.switchTo().alert().accept();
+		pause(3000);
+
+	}
+	*/
+	
 
 }

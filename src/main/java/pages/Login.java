@@ -125,7 +125,7 @@ public class Login {
 
 	}
 
-	public void landing_on_dashboard_click_ReturnSite_back_to_Dashboard_Then_logout() {
+	public void landing_on_dashboard_click_return_site_back_to_dashboard_then_logout() {
 
 		pause(2000);
 		elementEnabled(loginHeader);
@@ -153,10 +153,13 @@ public class Login {
 		pause(2000);
 		clickElement(logOut); // log out from Dashboard.
 		pause(2000);
+		verifyTitle(driver, "Enthrall IT");
+		verifyCurrentUrl(driver, "https://enthrallit.com/");
 
 	}
 
-	public void landing_on_Automation_Then_Click_Enroll_Now() {
+	public void landing_on_automation_then_click_enroll_now() {
+		
 		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
