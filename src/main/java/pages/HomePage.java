@@ -157,7 +157,7 @@ public class HomePage {
 		pause(3000);
 	}
 
-	public void title_validation() {
+	public void title_And_Url_validation() {
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
@@ -167,38 +167,38 @@ public class HomePage {
 
 	}
 
-	public void home_page_Menu_Section() {
-
+	public void landing_on_home_page_Then_Click_Menu_Section_step_one() {
+		// HOME.
 		pause(2000);
 		elementEnabled(homeHeader);
 		clickElement(homeHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/");
-
+		// COURSES.
 		pause(2000);
 		elementEnabled(coursesHeader);
 		clickElement(coursesHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/courses/");
-
+		// MENTORS.
 		pause(2000);
 		elementEnabled(mentorsHeader);
 		clickElement(mentorsHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/mentors/");
-
+		// ALUMNI.
 		pause(2000);
 		elementEnabled(alumniHeader);
 		clickElement(alumniHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/alumni/");
-
+		// ABOUT US.
 		pause(2000);
 		elementEnabled(aboutusHeader);
 		clickElement(aboutusHeader);
 		verifyTitle(driver, "About us");
 		verifyCurrentUrl(driver, "https://enthrallit.com/about/");
-
+		// LOGIN.
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
@@ -208,39 +208,40 @@ public class HomePage {
 
 	}
 
-	public void home_page_Footer_part() {
+	public void click_on_Home_page_Footer_part_step_two() {
 
+		// HOME.
 		pause(2000);
 		elementEnabled(homeFooter);
 		clickElement(homeFooter);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/");
 		validationOfOtherHeader(homeHeadertext, "Class Starts In:");
-
+		// COURSES.
 		pause(2000);
 		elementEnabled(coursesFooter);
 		clickElement(coursesFooter);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/courses/");
-
+		// MENTORS.
 		pause(2000);
 		elementEnabled(mentorsFooter);
 		clickElement(mentorsFooter);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/mentors/");
-
+		// ALUMNI.
 		pause(2000);
 		elementEnabled(alumniFooter);
 		clickElement(alumniFooter);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/alumni/");
-
+		// ABOUT US.
 		pause(2000);
 		elementEnabled(aboutUsFooter);
 		clickElement(aboutUsFooter);
 		verifyTitle(driver, "About us");
 		verifyCurrentUrl(driver, "https://enthrallit.com/about/");
-
+		// LOGIN.
 		pause(2000);
 		elementEnabled(loginFooter);
 		clickElement(loginFooter);
@@ -249,16 +250,7 @@ public class HomePage {
 
 	}
 
-	public void validation_Of_PhoneNumber_And_Email() {
-
-		pause(4000);
-		verifyTextOfTheWebElement(phoneNumber, "+1 929-301-6028");
-		pause(4000);
-		verifyTextOfTheWebElement(emailName, "info@enthrallit.com");
-
-	}
-
-	public void validation_Of_Contact_Us_Form() {
+	public void validation_Of_Contact_Us_Form_Step_three() {
 
 		pause(2000);
 		clickElement(homeHeader);
@@ -290,7 +282,42 @@ public class HomePage {
 
 	}
 
+	public void validation_Of_PhoneNumber_And_Email() {
+
+		pause(4000);
+		verifyTextOfTheWebElement(phoneNumber, "+1 929-301-6028");
+		pause(4000);
+		verifyTextOfTheWebElement(emailName, "info@enthrallit.com");
+
+	}
+
+	public void login() {
+
+		pause(2000);
+		elementEnabled(loginHeader);
+		pause(2000);
+		clickElement(loginHeader);
+		pause(2000);
+		verifyTitle(driver, "Enthrall IT");
+		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
+		pause(2000);
+		validationOfOtherHeader(loginHeaderText, "Login into your account");
+		pause(2000);
+		clickElement(loginElement);
+		pause(2000);
+		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		pause(1000);
+		inputTextThenClickTab(userpassElement, "Password$1");
+		pause(1000);
+		clickElement(loginbuttonElement);
+		pause(2000);
+		verifyTitle(driver, "Enthrall IT - Dashboard");
+		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
+
+	}
+
 	public void landing_on_Automation_Then_Click_Enroll_Now() {
+
 		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
@@ -300,41 +327,6 @@ public class HomePage {
 		pause(2000);
 		switchToChildWindow(driver, enroll);
 		pause(2000);
-	}
-
-	public void login() {
-		pause(2000);
-		elementEnabled(loginHeader);
-		clickElement(loginHeader);
-		verifyTitle(driver, "Enthrall IT");
-		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
-		validationOfOtherHeader(loginHeaderText, "Login into your account");
-		pause(2000);
-		clickElement(loginElement);
-		pause(2000);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
-		inputTextThenClickTab(userpassElement, "Password$1");
-		clickElement(loginbuttonElement);
-		verifyTitle(driver, "Enthrall IT - Dashboard");
-		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
-
-	}
-
-	public void home_Page_Full_Menu_Validation() {
-
-		logo_Validation();
-		pause(2000);
-		validation_Of_PhoneNumber_And_Email();
-		pause(2000);
-		title_validation();
-		pause(2000);
-		home_page_Menu_Section();
-		pause(2000);
-		home_page_Footer_part();
-		pause(2000);
-		validation_Of_Contact_Us_Form();
-		pause(2000);
-
 	}
 
 }

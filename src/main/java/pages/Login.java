@@ -59,8 +59,8 @@ public class Login {
 
 	@FindBy(xpath = "//*[@id='login' and@class='btn btn-lg px-5']")
 	WebElement loginbuttonElement;
-    ////button[@id='login'] 
-	
+	//// button[@id='login']
+
 	@FindBy(id = "login-link")
 	WebElement loginElement;
 
@@ -90,7 +90,7 @@ public class Login {
 
 	@FindBy(xpath = "//h1[text()= 'Dashboard']")
 	WebElement headerDashboardElement;
-	
+
 	@FindBy(xpath = "//span[text()='Automation']")
 	WebElement automationElement;
 
@@ -100,27 +100,33 @@ public class Login {
 	@FindBy(xpath = "//button[text()='Enroll Now']")
 	WebElement enroll;
 
-
 	public void login() {
-		pause(2000);
+		
+        pause(2000);
 		elementEnabled(loginHeader);
+		pause(2000);
 		clickElement(loginHeader);
+		pause(2000);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/accounts/login/");
+		pause(2000);
 		validationOfOtherHeader(loginHeaderText, "Login into your account");
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		pause(1000);
 		inputTextThenClickTab(userpassElement, "Password$1");
+		pause(1000);
 		clickElement(loginbuttonElement);
+		pause(2000);
 		verifyTitle(driver, "Enthrall IT - Dashboard");
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
 
 	}
 
-	public void landing_on_dashboard_click_returnSite_back_to_Dashboard_Then_logout() {
-		
+	public void landing_on_dashboard_click_ReturnSite_back_to_Dashboard_Then_logout() {
+
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
@@ -139,19 +145,19 @@ public class Login {
 		verifyTitle(driver, "Enthrall IT - Dashboard");
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
 		pause(2000);
-		clickElement(returnSite);
+		clickElement(returnSite); // Return Site.
 		pause(2000);
-		clickElement(dashboardBack);
+		clickElement(dashboardBack); // Go back to Dashboard.
 		pause(2000);
 		clickElement(imageOnDashboard);
 		pause(2000);
-		clickElement(logOut);
+		clickElement(logOut); // log out from Dashboard.
 		pause(2000);
 
 	}
-	
+
 	public void landing_on_Automation_Then_Click_Enroll_Now() {
-        pause(2000);
+		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
 		inputTextThenClickTab(userpassElement, "Password$1");
