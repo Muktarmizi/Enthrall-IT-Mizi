@@ -150,14 +150,14 @@ public class HomePage {
 	WebElement loginbuttonElement;
 	//// button[@id='login']
 
-	public void logo_Validation() {
+	public void logo_validation() {
 		pause(3000);
 		elementDisplayed(logoElement);
 		clickElement(logoElement);
 		pause(3000);
 	}
 
-	public void title_And_Url_validation() {
+	public void title_and_url_validation() {
 		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
@@ -167,7 +167,7 @@ public class HomePage {
 
 	}
 
-	public void landing_on_home_page_Then_Click_Menu_Section_step_one() {
+	public void landing_on_home_page_then_click_menu_section_step_one() {
 		// HOME.
 		pause(2000);
 		elementEnabled(homeHeader);
@@ -208,7 +208,7 @@ public class HomePage {
 
 	}
 
-	public void click_on_Home_page_Footer_part_step_two() {
+	public void click_on_home_page_footer_part_step_two() {
 
 		// HOME.
 		pause(2000);
@@ -250,7 +250,7 @@ public class HomePage {
 
 	}
 
-	public void validation_Of_Contact_Us_Form_Step_three() {
+	public void validation_of_contact_us_form_step_three() {
 
 		pause(2000);
 		clickElement(homeHeader);
@@ -282,7 +282,7 @@ public class HomePage {
 
 	}
 
-	public void validation_Of_PhoneNumber_And_Email() {
+	public void validation_of_phone_number_and_email() {
 
 		pause(4000);
 		verifyTextOfTheWebElement(phoneNumber, "+1 929-301-6028");
@@ -316,7 +316,7 @@ public class HomePage {
 
 	}
 
-	public void landing_on_Automation_Then_Click_Enroll_Now() {
+	public void landing_on_automation_then_click_enroll_now() {
 
 		pause(2000);
 		clickElement(loginElement);
