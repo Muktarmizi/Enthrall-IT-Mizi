@@ -638,7 +638,7 @@ public class Dashboard {
 		pause(2000);
 		clickElement(accept_Button);
 		pause(2000);
-		clickElement(submitButton);
+		clickElement(submitEnrollPagElement);
 		pause(2000);
 
 	}
@@ -655,9 +655,10 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
 		pause(2000);
-		verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,
-				"First Name is a required field.");
-
+		inputTextThenClickTab(firstnameElement, " ");  // empty input.
+		pause(2000);
+		verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,"First Name is a required field.");
+        pause(2000);
 		inputTextThenClickTab(firstnameElement, "'Shuvo-Mirza'");
 		pause(2000);
 	}
@@ -674,6 +675,8 @@ public class Dashboard {
 		inputTextThenClickTab(lastElement, "*&%&^&(*^*(^*(^*(^&^");
 		pause(2000);
 		verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
+		pause(2000);
+		inputTextThenClickTab(lastElement, " "); //empty input.
 		pause(2000);
 		verifyErrorMessageUnderTheField(lastNameRequireFieldElement, Attribute.INNER_HTML,"Last Name is a required field.");
         pause(2000);
@@ -718,7 +721,7 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
 		pause(2000);
-		inputTextThenClickTab(phoneNum, "000000000000000000000");//can't Start with 0 or 1.
+		inputTextThenClickTab(phoneNum, "000000000000000000000"); //can't Start with 0 or 1.
 		pause(2000);
 		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Phone Number must not start with a 1 or 0.");
 		pause(2000);
@@ -755,7 +758,7 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Must contain a minimum of 8 characters.");
 		pause(2000);
-		inputTextThenClickTab(passWordAdd, "shuvoMirza");
+		inputTextThenClickTab(passWordAdd, "shuvoMirza"); // Password cann't contain First and last name.
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
@@ -768,7 +771,7 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
-		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
+		inputTextThenClickTab(passWordAdd, "Mirzashuvo79"); // Password cann't contain part of the Email.
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
@@ -780,7 +783,7 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
-		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
+		inputTextThenClickTab(passWordAdd, "Mirzashuvo790");
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
@@ -800,7 +803,7 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
 		pause(2000);
-		inputTextThenClickTab(passWordAdd, "shuvoMirza#1");
+		inputTextThenClickTab(passWordAdd, "shuvoMirza#1");//Password cannot contain First Name, Last Name, or email.
 		pause(2000);
 		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Password cannot contain First Name, Last Name, or email.");
 		pause(2000);
@@ -918,7 +921,6 @@ public class Dashboard {
         
 	public void double_click_to_the_terms_and_condition() {
 		
-		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, signtureElement);
 		pause(2000);
@@ -932,14 +934,13 @@ public class Dashboard {
 	
 	public void step_one_click_right_click_action_then_click_back_button_then_submit_accept() {
 
-		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);
 		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
 		System.out.println("\nAlert Text: " + alert.getText());
-		alert.accept();//not Working.
+		alert.accept(); //not Working.
 		clickUsingJavascriptExecutor(driver, clickBackButton);
 		clickElementThenTab(clickBackButton);
 		pause(2000);
@@ -951,7 +952,6 @@ public class Dashboard {
 
 	public void step_two_click_right_click_action_then_click_cancel_button_then_submit_dismiss() {
 		
-		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, signtureElement);
 		rightClickActionDismiss(driver, rightClickActionElement, cancel_Element);
@@ -1183,6 +1183,9 @@ public class Dashboard {
 		}
 	
 	
+	
+
+	
 
 /*	public void dynamic_pop_up() {
 		
@@ -1213,7 +1216,7 @@ public class Dashboard {
 
 	public void try_to_click_oK() {
 		
-
+         //driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);

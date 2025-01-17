@@ -25,6 +25,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import pages.Dashboard;
 import pages.HomePage;
 import pages.Login;
+import pages.Others;
 import reports.ExtentReportManager;
 import reports.TestManager;
 import utils.Configuration;
@@ -35,6 +36,7 @@ public class BaseClass {
 	public HomePage homePage;
 	public Login login;
 	public Dashboard dashboard;
+	public Others others;
 	Configuration configuration;
 	ExtentReports extentReports;
 	ExtentTest extentTest;
@@ -99,6 +101,7 @@ public class BaseClass {
 		homePage = new HomePage(driver);
 		login = new Login(driver);
 		dashboard = new Dashboard(driver);
+		others=new Others(driver);
 	}
 
 	@AfterMethod

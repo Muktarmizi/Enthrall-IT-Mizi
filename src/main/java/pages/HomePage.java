@@ -150,6 +150,8 @@ public class HomePage {
 	WebElement loginbuttonElement;
 	//// button[@id='login']
 
+	
+	
 	public void logo_validation() {
 		pause(3000);
 		elementDisplayed(logoElement);
@@ -168,38 +170,45 @@ public class HomePage {
 	}
 
 	public void landing_on_home_page_then_click_menu_section_step_one() {
+		
+		
 		// HOME.
 		pause(2000);
 		elementEnabled(homeHeader);
 		clickElement(homeHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/");
+		
 		// COURSES.
 		pause(2000);
 		elementEnabled(coursesHeader);
 		clickElement(coursesHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/courses/");
+		
 		// MENTORS.
 		pause(2000);
 		elementEnabled(mentorsHeader);
 		clickElement(mentorsHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/mentors/");
+		
 		// ALUMNI.
 		pause(2000);
 		elementEnabled(alumniHeader);
 		clickElement(alumniHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/alumni/");
+		
 		// ABOUT US.
 		pause(2000);
 		elementEnabled(aboutusHeader);
 		clickElement(aboutusHeader);
 		verifyTitle(driver, "About us");
 		verifyCurrentUrl(driver, "https://enthrallit.com/about/");
+		
 		// LOGIN.
-		pause(2000);
+	    pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
 		verifyTitle(driver, "Enthrall IT");

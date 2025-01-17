@@ -100,6 +100,8 @@ public class Login {
 	@FindBy(xpath = "//button[text()='Enroll Now']")
 	WebElement enroll;
 
+
+	
 	public void login() {
 		
         pause(2000);
@@ -124,8 +126,9 @@ public class Login {
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
 
 	}
+	
 
-	public void landing_on_dashboard_click_return_site_back_to_dashboard_then_logout() {
+	public void landing_on_dashboard_then_click_return_site_then_back_to_dashboard_then_logout() {
 
 		pause(2000);
 		elementEnabled(loginHeader);
@@ -145,7 +148,7 @@ public class Login {
 		verifyTitle(driver, "Enthrall IT - Dashboard");
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
 		pause(2000);
-		clickElement(returnSite); // Return Site.
+		clickElement(returnSite); // click on Return Site.
 		pause(2000);
 		clickElement(dashboardBack); // Go back to Dashboard.
 		pause(2000);
