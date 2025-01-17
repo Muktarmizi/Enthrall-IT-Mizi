@@ -4,16 +4,18 @@ import org.testng.annotations.Test;
 
 import baseUtil.BaseClass;
 
-public class HomePageTest extends BaseClass {
+public class Home_Page_Test extends BaseClass {
 
 	@Test
-	public void logo_and_Title_Test() {
+	public void logo_and_Title_url_Test() {
+		
 		homePage.logo_validation();
 		homePage.title_and_url_validation();
 	}
 
 	@Test
 	public void home_page_Valdation() {
+		
 		homePage.logo_validation();
 		homePage.title_and_url_validation();
 		homePage.landing_on_home_page_then_click_menu_section_step_one();
@@ -22,6 +24,7 @@ public class HomePageTest extends BaseClass {
 
 	@Test
 	public void home_page_Contact_Us() {
+		
 		homePage.validation_of_contact_us_form_step_three();
 	}
 

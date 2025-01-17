@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import baseUtil.BaseClass;
 import pages.Login;
 
-public class LoginPageTest extends BaseClass {
+public class Login_Page_Test extends BaseClass {
 
 	@Test
 	public void login_to_Dashboard() {
@@ -14,7 +14,7 @@ public class LoginPageTest extends BaseClass {
 
 	@Test
 	public void login_to_dashBoard_And_Logout() {
-		login.landing_on_dashboard_click_return_site_back_to_dashboard_then_logout();
+		login.landing_on_dashboard_then_click_return_site_then_back_to_dashboard_then_logout();
 	}
 
 	@Test

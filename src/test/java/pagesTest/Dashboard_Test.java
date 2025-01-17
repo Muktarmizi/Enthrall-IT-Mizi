@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 import baseUtil.BaseClass;
 
-public class DashboardTest extends BaseClass {
+public class Dashboard_Test extends BaseClass {
 
 	@Test
 	public void landing_on_dashboard_then_click_side_bar_validation() {
@@ -16,11 +16,12 @@ public class DashboardTest extends BaseClass {
 
 	@Test
 	public void happy_path_test() {
+		
 		dashboard.happy_path_to_automation_then_click_enroll_now_then_input_all_information();
 	}
 
 	@Test
-	public void step_one_landing_on_automation_then_click_to_enroll_now_page_validation() {
+	public void step_one_landing_on_automation_then_click_to_enroll_now_page_for_validation() {
 
 		homePage.landing_on_automation_then_click_enroll_now();
 		dashboard.first_name_validation();
@@ -168,6 +169,12 @@ public class DashboardTest extends BaseClass {
 	public void signature_test() {
 		dashboard.signature_validation();
 	}
+	
+
+	
+	
+	
+	
 
 	/*
 	 * @Test public void dynamic() { dashboard.dynamic_pop_up();
