@@ -32,6 +32,7 @@ import utils.Configuration;
 import static utils.IConstant.*;
 
 public class BaseClass {
+	
 	public WebDriver driver;
 	public HomePage homePage;
 	public Login login;
