@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.EnthrallIT.Mizi</groupId>
-  <artifactId>com.EnthrallIT.Mizi</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Enthrall IT FrameWork</name>
-  <description>Enthrall Information and Technology.</description>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>abc.com.enthrallit</groupId>
+	<artifactId>abc.com.enthrallit</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Enthrall IT Framework</name>
+	<description>Enthrall Information and Technology helps us raise to new heights framework</description>
 
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -49,11 +49,6 @@
 			<version>2.0.16</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>abc.com.enthrallit</groupId>
-			<artifactId>abc.com.enthrallit</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -76,4 +71,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>

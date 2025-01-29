@@ -10,6 +10,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static common.CommonActions.*;
 import static common.CommonWaits.*;
+import reports.ExtentReportManager;
+import reports.TestManager;
+import utils.Configuration;
+import static utils.IConstant.*;
 
 public class Login {
 
@@ -116,9 +120,9 @@ public class Login {
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(useremailElement, user_id);
 		pause(1000);
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(userpassElement, password);
 		pause(1000);
 		clickElement(loginbuttonElement);
 		pause(2000);
@@ -139,9 +143,9 @@ public class Login {
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(useremailElement,user_id);
 		pause(2000);
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(userpassElement, password);
 		pause(2000);
 		clickElement(loginbuttonElement);
 		pause(2000);
@@ -165,8 +169,8 @@ public class Login {
 		
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(useremailElement, user_id);
+		inputTextThenClickTab(userpassElement, password);
 		clickElement(loginbuttonElement);
 		clickElement(automationElement);
 		pause(2000);

@@ -11,6 +11,11 @@ import static common.CommonWaits.*;
 
 import java.time.Duration;
 import java.util.List;
+import reports.ExtentReportManager;
+import reports.TestManager;
+import utils.Configuration;
+import static utils.IConstant.*;
+
 
 public class HomePage {
 
@@ -314,9 +319,9 @@ public class HomePage {
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
+		inputTextThenClickTab(useremailElement, user_id); 
 		pause(1000);
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(userpassElement, password);
 		pause(1000);
 		clickElement(loginbuttonElement);
 		pause(2000);
@@ -329,8 +334,8 @@ public class HomePage {
 
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(useremailElement,user_id);     // config.properties.
+		inputTextThenClickTab(userpassElement, password); // config.properties.
 		clickElement(loginbuttonElement);
 		clickElement(automationElement);
 		pause(2000);

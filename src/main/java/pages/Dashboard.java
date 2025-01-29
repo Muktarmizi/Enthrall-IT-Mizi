@@ -39,6 +39,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static common.CommonActions.*;
 import static common.CommonWaits.*;
+import reports.ExtentReportManager;
+import reports.TestManager;
+import utils.Configuration;
+import static utils.IConstant.*;
 
 public class Dashboard {
 
@@ -529,8 +533,8 @@ public class Dashboard {
 
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
-		inputTextThenClickTab(userpassElement, "Password$1");
+		inputTextThenClickTab(useremailElement,user_id );
+		inputTextThenClickTab(userpassElement, password);
 		clickElement(loginbuttonElement);
 		pause(2000);
 		clickElement(automation);
@@ -554,12 +558,12 @@ public class Dashboard {
 		clickElement(loginElement);
 		pause(2000);
 		useremailElement.clear();
-		useremailElement.sendKeys("Mizimuktar0@gmail.com");
+		useremailElement.sendKeys(user_id);
 		pause(2000);
 		clickElement(useremailElement);
 		pause(2000);
 		userpassElement.clear();
-		userpassElement.sendKeys("Password$1");
+		userpassElement.sendKeys(password);
 		pause(2000);
 		clickElement(userpassElement);
 		pause(2000);

@@ -13,5 +13,8 @@ public interface IConstant {
 	String EDGE = "edge";
 	String SAFARI = "safari";
 	
+	String user_id="Mizimuktar0@gmail.com";
+	String password= "Password$1";
+	String email="Mizimuktar0@gmail.com";
 
 }
