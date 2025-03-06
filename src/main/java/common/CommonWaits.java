@@ -14,11 +14,11 @@ import reports.Loggers;
 public class CommonWaits {
 	static WebDriver driver;
 	static WebDriverWait wait;
-	
+
 	public CommonWaits(WebDriverWait wait) {
-		this.wait = wait;
+		CommonWaits.wait = wait;
 	}
-	
+
 	public static void waitUntilTheConditionThenClick(WebDriver driver, WebElement element) {
 		try {
 			wait = new WebDriverWait(driver, Duration.ofSeconds(30));
@@ -30,6 +30,6 @@ public class CommonWaits {
 			Assert.fail();
 		}
 	}
-	
+
 
 }

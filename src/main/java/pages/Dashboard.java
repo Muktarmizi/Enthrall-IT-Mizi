@@ -1,48 +1,43 @@
 package pages;
 
-import java.awt.Button;
+import static common.CommonActions.clickElement;
+import static common.CommonActions.clickElementThenTab;
+import static common.CommonActions.clickUsingJavascriptExecutor;
+import static common.CommonActions.findYourNameFromTheTable;
+import static common.CommonActions.inputText;
+import static common.CommonActions.inputTextThenClickTab;
+import static common.CommonActions.pause;
+import static common.CommonActions.rightClickActionAccept;
+import static common.CommonActions.rightClickActionDismiss;
+import static common.CommonActions.scrollIntoViewTheElementUsingJavascriptExecutor;
+import static common.CommonActions.selectDropdown;
+import static common.CommonActions.selectElelementFromDropdownOnebyOne;
+import static common.CommonActions.switchToChildWindow;
+import static common.CommonActions.validationOfHeader;
+import static common.CommonActions.validationOfOtherHeader;
+import static common.CommonActions.validationOfSubHeader;
+import static common.CommonActions.verifyCurrentUrl;
+import static common.CommonActions.verifyErrorMessageUnderTheField;
+import static common.CommonActions.verifyLengthOfTheFieldContent;
+import static common.CommonActions.verifyTextOfTheWebElement;
+import static common.CommonActions.verifyTitle;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import static utils.IConstant.password;
+import static utils.IConstant.user_id;
+
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
-import java.util.Set;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import com.aventstack.extentreports.model.Video;
-import com.google.common.base.Function;
 
 import constants.Attribute;
-import io.reactivex.rxjava3.functions.Action;
-import reports.Loggers;
-
-import java.time.Duration;
-
-import javax.swing.text.ChangedCharSetException;
-import javax.xml.xpath.XPath;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import static common.CommonActions.*;
-import static common.CommonWaits.*;
-import reports.ExtentReportManager;
-import reports.TestManager;
-import utils.Configuration;
-import static utils.IConstant.*;
 
 public class Dashboard {
 
@@ -237,10 +232,10 @@ public class Dashboard {
 
 	@FindBy(xpath = "//input[@id='id_password']")
 	WebElement passWordAdd;
-	
+
 	@FindBy(xpath = "//*[@id='password_error']")
 	WebElement passErrorRequired;
-	
+
 	@FindBy(xpath = "//select[@id='id_gender']")
 	WebElement Gender;
 
@@ -426,11 +421,12 @@ public class Dashboard {
 
 	@FindBy(xpath = "//*[text()='August Test Account']")
 	WebElement find_My_Name_Scroll_Down;
-	
+
 	@FindBy(xpath = "//*[@id='home_address_error']")
 	WebElement home_Address_1_error;
 
-
+	
+	
 	
 	public void step_one_landing_on_dashboard_then_click_all_side_bar() {
 
@@ -533,8 +529,8 @@ public class Dashboard {
 
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement,user_id );
-		inputTextThenClickTab(userpassElement, password);
+		inputTextThenClickTab(useremailElement, user_id); // User Id set in Config.properties.
+		inputTextThenClickTab(userpassElement, password); // Password set in Config.properties.
 		clickElement(loginbuttonElement);
 		pause(2000);
 		clickElement(automation);
@@ -545,8 +541,9 @@ public class Dashboard {
 		pause(2000);
 		validationOfSubHeader(automationSubHeader, "Please choose from below");
 		pause(2000);
-		//scrollIntoViewTheElementUsingJavascriptExecutor(driver, find_My_Name_Scroll_Down);
-		//pause(2000);
+		// scrollIntoViewTheElementUsingJavascriptExecutor(driver,
+		// find_My_Name_Scroll_Down);
+		// pause(2000);
 
 	}
 
@@ -659,16 +656,17 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
 		pause(2000);
-		inputTextThenClickTab(firstnameElement, " ");  // empty input.
+		inputTextThenClickTab(firstnameElement, " "); // empty input.
 		pause(2000);
-		verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,"First Name is a required field.");
-        pause(2000);
+		verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,
+				"First Name is a required field.");
+		pause(2000);
 		inputTextThenClickTab(firstnameElement, "'Shuvo-Mirza'");
 		pause(2000);
 	}
 
 	public void last_name_validation() {
-		
+
 		pause(2000);
 		verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
 		pause(2000);
@@ -680,10 +678,11 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
 		pause(2000);
-		inputTextThenClickTab(lastElement, " "); //empty input.
+		inputTextThenClickTab(lastElement, " "); // empty input.
 		pause(2000);
-		verifyErrorMessageUnderTheField(lastNameRequireFieldElement, Attribute.INNER_HTML,"Last Name is a required field.");
-        pause(2000);
+		verifyErrorMessageUnderTheField(lastNameRequireFieldElement, Attribute.INNER_HTML,
+				"Last Name is a required field.");
+		pause(2000);
 		inputTextThenClickTab(lastElement, "'Shuvo-Mirza'");
 		pause(2000);
 
@@ -704,7 +703,7 @@ public class Dashboard {
 	}
 
 	public void select_course_validation() {
-		
+
 		pause(2000);
 		selectElelementFromDropdownOnebyOne(selectCourse, selectCourseList);
 		pause(2000);
@@ -712,7 +711,8 @@ public class Dashboard {
 		pause(2000);
 		clickElementThenTab(selectCourse);
 		pause(2000);
-		verifyErrorMessageUnderTheField(courseWishtoEnrollisarequiredfield, Attribute.INNER_HTML,"Course Wish to Enroll is a required field. ");
+		verifyErrorMessageUnderTheField(courseWishtoEnrollisarequiredfield, Attribute.INNER_HTML,
+				"Course Wish to Enroll is a required field. ");
 		pause(2000);
 	}
 
@@ -725,13 +725,15 @@ public class Dashboard {
 		pause(2000);
 		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
 		pause(2000);
-		inputTextThenClickTab(phoneNum, "000000000000000000000"); //can't Start with 0 or 1.
+		inputTextThenClickTab(phoneNum, "000000000000000000000"); // can't Start with 0 or 1.
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Phone Number must not start with a 1 or 0.");
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Phone Number must not start with a 1 or 0.");
 		pause(2000);
-		inputTextThenClickTab(phoneNum, "12345"); //must be 10 Digits.
+		inputTextThenClickTab(phoneNum, "12345"); // must be 10 Digits.
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Phone Number must be exactly 10 digits.");
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Phone Number must be exactly 10 digits.");
 		pause(2000);
 		inputTextThenClickTab(phoneNum, "+9293306564");
 		pause(2000);
@@ -748,78 +750,92 @@ public class Dashboard {
 		verifyErrorMessageUnderTheField(emailRequiredField, Attribute.INNER_HTML, "Must be a valid Email Address.");
 		pause(2000);
 	}
-	
+
 	public void password_validation() {
-        
+
 		pause(2000);
 		verifyLengthOfTheFieldContent(passWordAdd, Attribute.MAX_LENGTH, "74");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "$#@%$#$^%$&^$&$^&^");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "aBcds"); // Minimum of 8 characters.
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Must contain a minimum of 8 characters.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Must contain a minimum of 8 characters.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "shuvoMirza"); // Password cann't contain First and last name.
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "aaaaaaaaaaaaaaaa");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "JHDJLFNDSJLNFKLDSNFKSNKSLNGSKNGKF");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo79"); // Password cann't contain part of the Email.
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo79aaaaaaaaaa");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "821371029379102T*&%&*%&*");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Mirzashuvo790");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "121837892748913743");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,	"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange^(^*^**");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
 		inputTextThenClickTab(passWordAdd, "Appleorange5234354364");
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Please refer to Password requirements.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
 		pause(2000);
-		inputTextThenClickTab(passWordAdd, "shuvoMirza#1");//Password cannot contain First Name, Last Name, or email.
+		inputTextThenClickTab(passWordAdd, "shuvoMirza#1");// Password cannot contain First Name, Last Name, or email.
 		pause(2000);
-		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,"Password cannot contain First Name, Last Name, or email.");
+		verifyErrorMessageUnderTheField(passErrorRequired, Attribute.INNER_HTML,
+				"Password cannot contain First Name, Last Name, or email.");
 		pause(2000);
-		
-		
+
 	}
 
 	public void choose_file_validation() {
 		pause(2000);
 		clickElement(submitEnrollPagElement);
 		pause(2000);
-		verifyErrorMessageUnderTheField(chooseFileRequiredField, Attribute.INNER_HTML,"Personal Image is a required field.");
+		verifyErrorMessageUnderTheField(chooseFileRequiredField, Attribute.INNER_HTML,
+				"Personal Image is a required field.");
 		pause(2000);
 	}
 
@@ -828,18 +844,20 @@ public class Dashboard {
 		pause(2000);
 		clickElement(submitEnrollPagElement);
 		pause(2000);
-		verifyErrorMessageUnderTheField(choosePhotoRequiredField, Attribute.INNER_HTML,"Photo Id is a required field.");
+		verifyErrorMessageUnderTheField(choosePhotoRequiredField, Attribute.INNER_HTML,
+				"Photo Id is a required field.");
 		pause(2000);
 	}
 
 	public void birth_year_validation() {
-		
+
 		pause(2000);
 		selectDropdown(selectBirthYear, "Select Birth Year");
 		pause(2000);
 		clickElementThenTab(selectBirthYear);
 		pause(2000);
-		verifyErrorMessageUnderTheField(birthYearRequiredFieldElement, Attribute.INNER_HTML,"Birth Year is a required field.");
+		verifyErrorMessageUnderTheField(birthYearRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Year is a required field.");
 		pause(2000);
 
 	}
@@ -853,7 +871,8 @@ public class Dashboard {
 		pause(2000);
 		clickElementThenTab(selectBirthMonth);
 		pause(2000);
-		verifyErrorMessageUnderTheField(birthMonthRequiredFieldElement, Attribute.INNER_HTML,"Birth Month is a required field.");
+		verifyErrorMessageUnderTheField(birthMonthRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Month is a required field.");
 		pause(2000);
 	}
 
@@ -864,7 +883,8 @@ public class Dashboard {
 		pause(2000);
 		clickElementThenTab(selectBirthDay);
 		pause(2000);
-		verifyErrorMessageUnderTheField(birthDayRequiredFieldElement, Attribute.INNER_HTML,"Birth Date is a required field.");
+		verifyErrorMessageUnderTheField(birthDayRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Date is a required field.");
 		pause(2000);
 	}
 
@@ -873,17 +893,18 @@ public class Dashboard {
 		pause(3000);
 		inputTextThenClickTab(homeAddressL1, "#$$%%^^#$%$%%(*^*(^(*^(*");
 		pause(3000);
-		verifyErrorMessageUnderTheField(home_Address_1_error, Attribute.INNER_HTML,"Must be alphanumeric characters.");
+		verifyErrorMessageUnderTheField(home_Address_1_error, Attribute.INNER_HTML, "Must be alphanumeric characters.");
 		pause(2000);
 		pause(2000);
 		inputTextThenClickTab(homeAddressL1, "90i31-4813840138041034801");
 		pause(2000);
-		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Home Address Line 1 is a required field.");
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Home Address Line 1 is a required field.");
 		pause(2000);
-		}
+	}
 
 	public void city_validation() {
-		
+
 		pause(2000);
 		inputTextThenClickTab(cityElement, "90i31-4813840138041034801");
 		pause(2000);
@@ -903,14 +924,16 @@ public class Dashboard {
 	public void zip_code_validation() {
 
 		pause(2000);
-		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "5");
+		verifyLengthOfTheFieldContent(zipCodElement, Attribute.MAX_LENGTH, "5");
 		inputTextThenClickTab(zipCodElement, "ksmd;lsmaf;lmad;lfma");
 		pause(2000);
-		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,"ZIP Code is a required field.");
+		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,
+				"ZIP Code is a required field.");
 		pause(2000);
 		inputTextThenClickTab(zipCodElement, "1234");
 		pause(2000);
-		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,"Must be a valid numeric ZIP Code.");
+		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,
+				"Must be a valid numeric ZIP Code.");
 		pause(2000);
 	}
 
@@ -919,12 +942,13 @@ public class Dashboard {
 		pause(2000);
 		inputTextThenClickTab(signtureElement, "1293u2193u2193u912321%%%%%%");
 		pause(2000);
-		verifyErrorMessageUnderTheField(signtureRequiredFieldElement, Attribute.INNER_HTML,"Signature is a required field.");
+		verifyErrorMessageUnderTheField(signtureRequiredFieldElement, Attribute.INNER_HTML,
+				"Signature is a required field.");
 		pause(2000);
 	}
-        
+
 	public void double_click_to_the_terms_and_condition() {
-		
+
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, signtureElement);
 		pause(2000);
@@ -935,16 +959,18 @@ public class Dashboard {
 		pause(2000);
 
 	}
-	
+
 	public void step_one_click_right_click_action_then_click_back_button_then_submit_accept() {
 
+		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);
 		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
-		System.out.println("\nAlert Text: " + alert.getText());
-		alert.accept(); //not Working.
+		System.out.println("Alert Text: " + alert.getText());
+		alert.accept(); // Alert is not Working.
 		clickUsingJavascriptExecutor(driver, clickBackButton);
 		clickElementThenTab(clickBackButton);
 		pause(2000);
@@ -952,10 +978,9 @@ public class Dashboard {
 		pause(2000);
 
 	}
-	
 
 	public void step_two_click_right_click_action_then_click_cancel_button_then_submit_dismiss() {
-		
+
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, signtureElement);
 		rightClickActionDismiss(driver, rightClickActionElement, cancel_Element);
@@ -963,21 +988,19 @@ public class Dashboard {
 		clickElement(cancel_Element);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
-		System.out.println("\nAlert Text: " + alert.getText());
-		alert.dismiss();//not Working.
+		System.out.println("Alert Text: " + alert.getText());
+		alert.dismiss();// Alert is not Working.
 		pause(3000);
 	}
 
-	
-
 	public void step_three_return_back_To_enroll_now_page_then_find_your_name_from_the_table() {
-		
+
 		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
 		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
 		pause(2000);
 		Alert alert = driver.switchTo().alert();
-		System.out.println("\nAlert Text: " + alert.getText());
+		System.out.println("Alert Text: " + alert.getText()); // Alert is Not Working.
 		alert.accept();
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_Find_MyName);
@@ -990,8 +1013,8 @@ public class Dashboard {
 	}
 
 	public void landing_on_automation_to_find_your_name_from_the_table() {
-		
-      	pause(2000);
+
+		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
 		inputTextThenClickTab(userpassElement, "Password$1");
@@ -1008,241 +1031,247 @@ public class Dashboard {
 	}
 
 	public void enroll_now_page_error_message_and_required_field_validation() {
-		
-			pause(2000);
-			verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
-			inputTextThenClickTab(firstnameElement, "123456788980909009");
-			pause(2000);
-			verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
-			inputTextThenClickTab(firstnameElement, "%&$^%&^(*^*&)&)((*()&)&)&");
-			pause(2000);
-			verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
-			verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,"First Name is a required field.");
-            pause(2000);
-			inputTextThenClickTab(firstnameElement, "'Shuvo-Mirza'");
-            pause(2000);
-			verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
-			pause(2000);
-			inputTextThenClickTab(lastElement, "12548599890878787");
-			pause(2000);
-			verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
-			pause(2000);
-			inputTextThenClickTab(lastElement, "*&%&^&(*^*(^*(^*(^&^");
-			pause(2000);
-			verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
-			pause(2000);
-			verifyErrorMessageUnderTheField(lastNameRequireFieldElement, Attribute.INNER_HTML,"Last Name is a required field.");
-	        pause(2000);
-			inputTextThenClickTab(lastElement, "'Shuvo-Mirza'");
-			pause(2000);
-			selectDropdown(selectProfession, "Select Profession");
-			pause(2000);
-			clickElementThenTab(selectProfession);
-			pause(2000);
-			verifyErrorMessageUnderTheField(iamrequiredfield, Attribute.INNER_HTML, "I'm is a required field.");
-            pause(2000);
-			selectDropdown(selectCourse, "Select Course");
-			pause(2000);
-			clickElementThenTab(selectCourse);
-			pause(2000);
-			verifyErrorMessageUnderTheField(courseWishtoEnrollisarequiredfield, Attribute.INNER_HTML,"Course Wish to Enroll is a required field. ");
-			pause(2000);
-			verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "10");
-			pause(2000);
-			inputTextThenClickTab(phoneNum, "*&%^#@@@#@#");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
-			pause(2000);
-			inputTextThenClickTab(phoneNum, "000000000000000000000");//can't Start with 0 or 1.
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Phone Number must not start with a 1 or 0.");
-			pause(2000);
-			inputTextThenClickTab(phoneNum, "12345"); //must be 10 Digits.
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Phone Number must be exactly 10 digits.");
-			pause(2000);
-			inputTextThenClickTab(phoneNum, "+9293306564");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
-			pause(2000);
-        	verifyLengthOfTheFieldContent(emailAdd, Attribute.MAX_LENGTH, "74");
-			pause(2000);
-			inputTextThenClickTab(emailAdd, "$#@%$#$^%$&^$&$^&^");
-			pause(2000);
-			verifyErrorMessageUnderTheField(emailRequiredField, Attribute.INNER_HTML, "Must be a valid Email Address.");
-			pause(2000);
-			verifyLengthOfTheFieldContent(passWordAdd, Attribute.MAX_LENGTH, "74");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "$#@%$#$^%$&^$&$^&^");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "aBcds"); // Minimum of 8 characters.
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Must contain a minimum of 8 characters.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "shuvoMirza");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "aaaaaaaaaaaaaaaa");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "JHDJLFNDSJLNFKLDSNFKSNKSLNGSKNGKF");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Mirzashuvo79aaaaaaaaaa");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "821371029379102T*&%&*%&*");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "121837892748913743");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Appleorange");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,	"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Appleorange^(^*^**");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			inputTextThenClickTab(passWordAdd, "Appleorange5234354364");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Please refer to Password requirements.");
-			pause(2000);
-			clickElement(submitEnrollPagElement);
-			pause(2000);
-			verifyErrorMessageUnderTheField(chooseFileRequiredField, Attribute.INNER_HTML,"Personal Image is a required field.");
-			pause(2000);
-			clickElement(submitEnrollPagElement);
-			pause(2000);
-			verifyErrorMessageUnderTheField(choosePhotoRequiredField, Attribute.INNER_HTML,"Photo Id is a required field.");
-			pause(2000);
-			selectDropdown(selectBirthYear, "Select Birth Year");
-			pause(2000);
-			clickElementThenTab(selectBirthYear);
-			pause(2000);
-			verifyErrorMessageUnderTheField(birthYearRequiredFieldElement, Attribute.INNER_HTML,"Birth Year is a required field.");
-			pause(2000);
-			selectDropdown(selectBirthMonth, "Select Birth Month");
-			pause(2000);
-			clickElementThenTab(selectBirthMonth);
-			pause(2000);
-			verifyErrorMessageUnderTheField(birthMonthRequiredFieldElement, Attribute.INNER_HTML,"Birth Month is a required field.");
-			pause(2000);
-			selectDropdown(selectBirthDay, "Select Birth Date");
-			pause(2000);
-			clickElementThenTab(selectBirthDay);
-			pause(2000);
-			verifyErrorMessageUnderTheField(birthDayRequiredFieldElement, Attribute.INNER_HTML,"Birth Date is a required field.");
-			pause(2000);
-			verifyLengthOfTheFieldContent(homeAddressL1, Attribute.MAX_LENGTH, "60");
-			pause(3000);
-			inputTextThenClickTab(homeAddressL1, "#$$%%^^#$%$%%(*^*(^(*^(*");
-			pause(3000);
-			verifyErrorMessageUnderTheField(home_Address_1_error, Attribute.INNER_HTML,"Must be alphanumeric characters.");
-			pause(2000);
-			inputTextThenClickTab(homeAddressL1, "90i31-4813840138041034801");
-			pause(2000);
-			verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,"Home Address Line 1 is a required field.");
-			pause(2000);
-			inputTextThenClickTab(cityElement, "90i31-4813840138041034801");
-			pause(2000);
-			verifyErrorMessageUnderTheField(cityRequiredFieldElement, Attribute.INNER_HTML, "City is a required field.");
-			pause(2000);
-			selectDropdown(stateElement, "90i31-4813840138041034801");
-			pause(2000);
-			verifyErrorMessageUnderTheField(stateRequiredFieldElement, Attribute.INNER_HTML, "State is a required field.");
-			pause(2000);
-			verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "5");
-			inputTextThenClickTab(zipCodElement, "ksmd;lsmaf;lmad;lfma");
-			pause(2000);
-			verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,"ZIP Code is a required field.");
-			pause(2000);
-			inputTextThenClickTab(zipCodElement, "1234");
-			pause(2000);
-			verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,"Must be a valid numeric ZIP Code.");
-			pause(2000);
-			inputTextThenClickTab(signtureElement, "1293u2193u2193u912321%%%%%%");
-			pause(2000);
-			verifyErrorMessageUnderTheField(signtureRequiredFieldElement, Attribute.INNER_HTML,"Signature is a required field.");
-			pause(2000);
-		
-		}
-	
-	
-	
 
-	
-
-/*	public void dynamic_pop_up() {
-		
-		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-		Set<String> widSet = driver.getWindowHandles();
-		if (widSet.size() > 1) {
-
-			driver.switchTo().window("handleBack()");
-			pause(5000);
-			try {
-				WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
-				if (elementonpopupElement.isDisplayed()) {
-					pause(3000);
-					elementonpopupElement.click();
-					pause(4000);
-				}
-			}
-
-			catch (NoSuchElementException ne) {
-				System.out.println("Alert is displayed but colud not click on ok button");
-
-			}
-			pause(5000);
-
-		}
-
-	}
-
-	public void try_to_click_oK() {
-		
-         //driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);
-		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
+		verifyLengthOfTheFieldContent(firstnameElement, Attribute.MAX_LENGTH, "20");
+		inputTextThenClickTab(firstnameElement, "123456788980909009");
 		pause(2000);
-		Set<String> widSet = driver.getWindowHandles();
-		if (widSet.size() > 1) {
-			driver.switchTo().window("handleBack()");
-			pause(5000);
-		}
-		WebElement elementonpopupElement = driver.findElement(By.id("customButton"));
-
-		if (elementonpopupElement.isDisplayed()) {
-			pause(3000);
-			elementonpopupElement.click();
-			pause(4000);
-		}
-		driver.switchTo().alert().accept();
+		verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
+		inputTextThenClickTab(firstnameElement, "%&$^%&^(*^*&)&)((*()&)&)&");
+		pause(2000);
+		verifyErrorMessageUnderTheField(firstNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
+		verifyErrorMessageUnderTheField(firstNameRequiredFieldElement, Attribute.INNER_HTML,
+				"First Name is a required field.");
+		pause(2000);
+		inputTextThenClickTab(firstnameElement, "'Shuvo-Mirza'");
+		pause(2000);
+		verifyLengthOfTheFieldContent(lastElement, Attribute.MAX_LENGTH, "20");
+		pause(2000);
+		inputTextThenClickTab(lastElement, "12548599890878787");
+		pause(2000);
+		verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
+		pause(2000);
+		inputTextThenClickTab(lastElement, "*&%&^&(*^*(^*(^*(^&^");
+		pause(2000);
+		verifyErrorMessageUnderTheField(lastNameErrorElement, Attribute.INNER_HTML, "Must be alphabetic characters.");
+		pause(2000);
+		verifyErrorMessageUnderTheField(lastNameRequireFieldElement, Attribute.INNER_HTML,
+				"Last Name is a required field.");
+		pause(2000);
+		inputTextThenClickTab(lastElement, "'Shuvo-Mirza'");
+		pause(2000);
+		selectDropdown(selectProfession, "Select Profession");
+		pause(2000);
+		clickElementThenTab(selectProfession);
+		pause(2000);
+		verifyErrorMessageUnderTheField(iamrequiredfield, Attribute.INNER_HTML, "I'm is a required field.");
+		pause(2000);
+		selectDropdown(selectCourse, "Select Course");
+		pause(2000);
+		clickElementThenTab(selectCourse);
+		pause(2000);
+		verifyErrorMessageUnderTheField(courseWishtoEnrollisarequiredfield, Attribute.INNER_HTML,
+				"Course Wish to Enroll is a required field. ");
+		pause(2000);
+		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "10");
+		pause(2000);
+		inputTextThenClickTab(phoneNum, "*&%^#@@@#@#");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
+		pause(2000);
+		inputTextThenClickTab(phoneNum, "000000000000000000000");// can't Start with 0 or 1.
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Phone Number must not start with a 1 or 0.");
+		pause(2000);
+		inputTextThenClickTab(phoneNum, "12345"); // must be 10 Digits.
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Phone Number must be exactly 10 digits.");
+		pause(2000);
+		inputTextThenClickTab(phoneNum, "+9293306564");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML, "Must be a valid Phone Number.");
+		pause(2000);
+		verifyLengthOfTheFieldContent(emailAdd, Attribute.MAX_LENGTH, "74");
+		pause(2000);
+		inputTextThenClickTab(emailAdd, "$#@%$#$^%$&^$&$^&^");
+		pause(2000);
+		verifyErrorMessageUnderTheField(emailRequiredField, Attribute.INNER_HTML, "Must be a valid Email Address.");
+		pause(2000);
+		verifyLengthOfTheFieldContent(passWordAdd, Attribute.MAX_LENGTH, "74");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "$#@%$#$^%$&^$&$^&^");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "aBcds"); // Minimum of 8 characters.
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Must contain a minimum of 8 characters.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "shuvoMirza");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "aaaaaaaaaaaaaaaa");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "JHDJLFNDSJLNFKLDSNFKSNKSLNGSKNGKF");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Mirzashuvo79aaaaaaaaaa");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "821371029379102T*&%&*%&*");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Mirzashuvo79");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "121837892748913743");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Appleorange");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Appleorange^(^*^**");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		inputTextThenClickTab(passWordAdd, "Appleorange5234354364");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Please refer to Password requirements.");
+		pause(2000);
+		clickElement(submitEnrollPagElement);
+		pause(2000);
+		verifyErrorMessageUnderTheField(chooseFileRequiredField, Attribute.INNER_HTML,
+				"Personal Image is a required field.");
+		pause(2000);
+		clickElement(submitEnrollPagElement);
+		pause(2000);
+		verifyErrorMessageUnderTheField(choosePhotoRequiredField, Attribute.INNER_HTML,
+				"Photo Id is a required field.");
+		pause(2000);
+		selectDropdown(selectBirthYear, "Select Birth Year");
+		pause(2000);
+		clickElementThenTab(selectBirthYear);
+		pause(2000);
+		verifyErrorMessageUnderTheField(birthYearRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Year is a required field.");
+		pause(2000);
+		selectDropdown(selectBirthMonth, "Select Birth Month");
+		pause(2000);
+		clickElementThenTab(selectBirthMonth);
+		pause(2000);
+		verifyErrorMessageUnderTheField(birthMonthRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Month is a required field.");
+		pause(2000);
+		selectDropdown(selectBirthDay, "Select Birth Date");
+		pause(2000);
+		clickElementThenTab(selectBirthDay);
+		pause(2000);
+		verifyErrorMessageUnderTheField(birthDayRequiredFieldElement, Attribute.INNER_HTML,
+				"Birth Date is a required field.");
+		pause(2000);
+		verifyLengthOfTheFieldContent(homeAddressL1, Attribute.MAX_LENGTH, "60");
 		pause(3000);
+		inputTextThenClickTab(homeAddressL1, "#$$%%^^#$%$%%(*^*(^(*^(*");
+		pause(3000);
+		verifyErrorMessageUnderTheField(home_Address_1_error, Attribute.INNER_HTML, "Must be alphanumeric characters.");
+		pause(2000);
+		inputTextThenClickTab(homeAddressL1, "90i31-4813840138041034801");
+		pause(2000);
+		verifyErrorMessageUnderTheField(phoneNumRequiredField, Attribute.INNER_HTML,
+				"Home Address Line 1 is a required field.");
+		pause(2000);
+		inputTextThenClickTab(cityElement, "90i31-4813840138041034801");
+		pause(2000);
+		verifyErrorMessageUnderTheField(cityRequiredFieldElement, Attribute.INNER_HTML, "City is a required field.");
+		pause(2000);
+		selectDropdown(stateElement, "90i31-4813840138041034801");
+		pause(2000);
+		verifyErrorMessageUnderTheField(stateRequiredFieldElement, Attribute.INNER_HTML, "State is a required field.");
+		pause(2000);
+		verifyLengthOfTheFieldContent(phoneNum, Attribute.MAX_LENGTH, "5");
+		inputTextThenClickTab(zipCodElement, "ksmd;lsmaf;lmad;lfma");
+		pause(2000);
+		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,
+				"ZIP Code is a required field.");
+		pause(2000);
+		inputTextThenClickTab(zipCodElement, "1234");
+		pause(2000);
+		verifyErrorMessageUnderTheField(zipCodeRequiredFieldElement, Attribute.INNER_HTML,
+				"Must be a valid numeric ZIP Code.");
+		pause(2000);
+		inputTextThenClickTab(signtureElement, "1293u2193u2193u912321%%%%%%");
+		pause(2000);
+		verifyErrorMessageUnderTheField(signtureRequiredFieldElement, Attribute.INNER_HTML,
+				"Signature is a required field.");
+		pause(2000);
 
 	}
-	*/
-	
+
+	/*
+	 * public void dynamic_pop_up() {
+	 * 
+	 * driver.get("https://enthrallit.com/course/dashboard/enrolls/"); Set<String>
+	 * widSet = driver.getWindowHandles(); if (widSet.size() > 1) {
+	 * 
+	 * driver.switchTo().window("handleBack()"); pause(5000); try { WebElement
+	 * elementonpopupElement = driver.findElement(By.id("customButton")); if
+	 * (elementonpopupElement.isDisplayed()) { pause(3000);
+	 * elementonpopupElement.click(); pause(4000); } }
+	 * 
+	 * catch (NoSuchElementException ne) {
+	 * System.out.println("Alert is displayed but colud not click on ok button");
+	 * 
+	 * } pause(5000);
+	 * 
+	 * }
+	 * 
+	 * }
+	 * 
+	 * public void try_to_click_oK() {
+	 * 
+	 * //driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+	 * driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+	 * scrollIntoViewTheElementUsingJavascriptExecutor(driver,
+	 * rightClickActionElement); pause(2000); rightClickActionAccept(driver,
+	 * rightClickActionElement, clickBackButton); pause(2000); Set<String> widSet =
+	 * driver.getWindowHandles(); if (widSet.size() > 1) {
+	 * driver.switchTo().window("handleBack()"); pause(5000); } WebElement
+	 * elementonpopupElement = driver.findElement(By.id("customButton"));
+	 * 
+	 * if (elementonpopupElement.isDisplayed()) { pause(3000);
+	 * elementonpopupElement.click(); pause(4000); }
+	 * driver.switchTo().alert().accept(); pause(3000);
+	 * 
+	 * }
+	 */
 
 }

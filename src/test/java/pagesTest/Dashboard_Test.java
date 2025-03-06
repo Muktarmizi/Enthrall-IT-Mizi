@@ -16,7 +16,7 @@ public class Dashboard_Test extends BaseClass {
 
 	@Test
 	public void happy_path_test() {
-		
+
 		dashboard.happy_path_to_automation_then_click_enroll_now_then_input_all_information();
 	}
 
@@ -169,20 +169,16 @@ public class Dashboard_Test extends BaseClass {
 	public void signature_test() {
 		dashboard.signature_validation();
 	}
-	
 
 	
 	
-	
-	
-
 	/*
 	 * @Test public void dynamic() { dashboard.dynamic_pop_up();
-	 * 
+	 *
 	 * }
-	 * 
+	 *
 	 * @Test public void click_ok() { dashboard.try_to_click_oK();
-	 * 
+	 *
 	 * }
 	 */
 
