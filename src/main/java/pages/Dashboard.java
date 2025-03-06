@@ -441,6 +441,8 @@ public class Dashboard {
 	@FindBy(xpath = "//p[text()='Thank you for registering. You will receive a confirmation email shortly.']")
 	WebElement Thank_you_for_registering;
 
+	
+	
 	public void step_one_landing_on_dashboard_then_click_all_side_bar() {
 
 		// Profile.
