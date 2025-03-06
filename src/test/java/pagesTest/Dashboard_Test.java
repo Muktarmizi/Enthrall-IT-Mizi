@@ -169,17 +169,14 @@ public class Dashboard_Test extends BaseClass {
 	public void signature_test() {
 		dashboard.signature_validation();
 	}
+	
+	
+	 @Test public void test() { 
+		 dashboard.is_Success_Page_Displayed(); 
+		 
+	 }
 
 	
 	
-	/*
-	 * @Test public void dynamic() { dashboard.dynamic_pop_up();
-	 *
-	 * }
-	 *
-	 * @Test public void click_ok() { dashboard.try_to_click_oK();
-	 *
-	 * }
-	 */
 
 }

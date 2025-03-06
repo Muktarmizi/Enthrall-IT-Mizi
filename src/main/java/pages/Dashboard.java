@@ -3,6 +3,7 @@ package pages;
 import static common.CommonActions.clickElement;
 import static common.CommonActions.clickElementThenTab;
 import static common.CommonActions.clickUsingJavascriptExecutor;
+import static common.CommonActions.elementEnabled;
 import static common.CommonActions.findYourNameFromTheTable;
 import static common.CommonActions.inputText;
 import static common.CommonActions.inputTextThenClickTab;
@@ -21,6 +22,9 @@ import static common.CommonActions.verifyErrorMessageUnderTheField;
 import static common.CommonActions.verifyLengthOfTheFieldContent;
 import static common.CommonActions.verifyTextOfTheWebElement;
 import static common.CommonActions.verifyTitle;
+import static common.CommonActions.elementEnabled;
+import static common.CommonActions.elementSelected;
+import static common.CommonActions.elementDisplayed;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import static utils.IConstant.password;
 import static utils.IConstant.user_id;
@@ -395,7 +399,7 @@ public class Dashboard {
 	@FindBy(xpath = "//*[@id='email_error']")
 	WebElement emailRequiredField;
 
-	@FindBy(id = "//button[@id='submit_button']")
+	@FindBy(id = "submit_button")
 	WebElement submitEnrollPagElement;
 
 	@FindBy(xpath = "//h3[text()='Automation']")
@@ -425,9 +429,18 @@ public class Dashboard {
 	@FindBy(xpath = "//*[@id='home_address_error']")
 	WebElement home_Address_1_error;
 
-	
-	
-	
+	@FindBy(xpath = "//div[text()='English']")
+	WebElement english;
+
+	@FindBy(xpath = "//h1[text()='Registration Successful!']")
+	WebElement successsfull;
+
+	@FindBy(xpath = "//h1[text()='Registration Successful!']")
+	WebElement Registration_Successful;
+
+	@FindBy(xpath = "//p[text()='Thank you for registering. You will receive a confirmation email shortly.']")
+	WebElement Thank_you_for_registering;
+
 	public void step_one_landing_on_dashboard_then_click_all_side_bar() {
 
 		// Profile.
@@ -541,9 +554,6 @@ public class Dashboard {
 		pause(2000);
 		validationOfSubHeader(automationSubHeader, "Please choose from below");
 		pause(2000);
-		// scrollIntoViewTheElementUsingJavascriptExecutor(driver,
-		// find_My_Name_Scroll_Down);
-		// pause(2000);
 
 	}
 
@@ -571,76 +581,85 @@ public class Dashboard {
 		switchToChildWindow(driver, enroll);
 		pause(2000);
 		clickElement(firstnameElement);
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(firstnameElement, "Shuvo");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(middlElement, "M");
-		pause(2000);
+		pause(1000);
 		inputText(lastElement, "Mirza");
-		pause(2000);
+		pause(1000);
 		selectElelementFromDropdownOnebyOne(selectProfession, selecProfessionList);
-		pause(2000);
+		pause(1000);
 		selectDropdown(selectProfession, "a Student");
-		pause(2000);
+		pause(1000);
 		selectElelementFromDropdownOnebyOne(selectCourse, selectCourseList);
-		pause(2000);
+		pause(1000);
 		selectDropdown(selectCourse, "Python");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(phoneNum, "9293306564");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(emailAdd, "MirzaShuvo79@gmail.com");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(passWordAdd, "Muktar2024$");
-		pause(2000);
+		pause(1000);
 		selectDropdown(Gender, "Male");
-		pause(2000);
+		pause(1000);
 		File file = new File("./image/Screenshot 2024-11-30 185110.png");
 		choosefile1.sendKeys(file.getAbsolutePath());
-		pause(2000);
+		pause(1000);
 		File file2 = new File("./image/Screenshot 2024-11-30 185141.png");
 		choosefile2.sendKeys(file.getAbsolutePath());
-		pause(2000);
+		pause(1000);
 		selectDropdown(selectBirthYear, "1989");
-		pause(2000);
+		pause(1000);
 		selectElelementFromDropdownOnebyOne(selectBirthMonth, selectBirthMonthList);
-		pause(2000);
+		pause(1000);
 		selectDropdown(selectBirthMonth, "December");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(selectBirthDay, "16");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(homeAddressL1, "2268 Seward Ave");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(homeAddressL2, "Apt 3");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(cityElement, "Bronx");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(stateElement, "New York");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(zipCodElement, "10473");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(immigrationElement, "Citizen");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(arrivalDateElement, "24th Jan 2013");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(emergencyElement, "9293306564");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(knowAboutUs, "Friends");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(highEducation, "Graduate");
-		pause(2000);
+		pause(1000);
 		inputTextThenClickTab(countryOriginElement, "Bangladesh");
-		pause(2000);
-		inputTextThenClickTab(selectLanguage, "English");
-		pause(2000);
+		pause(1000);
+		elementSelected(english);
+		pause(1000);
 		inputTextThenClickTab(signtureElement, "Shuvo M Mirza");
-		pause(2000);
+		pause(1000);
 		Actions actions = new Actions(driver);
 		actions.doubleClick(terms_and_condition).build().perform();
-		pause(2000);
+		pause(1000);
 		clickElement(accept_Button);
-		pause(2000);
+		pause(1000);
 		clickElement(submitEnrollPagElement);
-		pause(2000);
+		pause(1000);
+		verifyCurrentUrl(driver, "https://enthrallit.com/course/enroll/success/");
+		pause(1000);
+		verifyTitle(driver, "Registration Success");
+		pause(1000);
+		// validationOfHeader(Registration_Successful, "Registration Successful!");
+		// pause(1000);
+		// validationOfSubHeader(Thank_you_for_registering,"Thank you for registering.
+		// You will receive a confirmation email shortly.");
+		// pause(1000);
 
 	}
 
@@ -960,9 +979,24 @@ public class Dashboard {
 
 	}
 
+	public void is_Success_Page_Displayed() {
+
+		pause(1000);
+		verifyCurrentUrl(driver, "https://enthrallit.com/course/enroll/success/");
+		pause(1000);
+		verifyTitle(driver, "Registration Success");
+		pause(1000);
+		validationOfHeader(Registration_Successful, "Registration Successful!");
+		pause(1000);
+		validationOfSubHeader(Thank_you_for_registering,
+				"Thank you for registering. You will receive a confirmation email shortly.");
+		pause(1000);
+
+	}
+
 	public void step_one_click_right_click_action_then_click_back_button_then_submit_accept() {
 
-		//driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+		// driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		pause(2000);
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);
@@ -1235,43 +1269,5 @@ public class Dashboard {
 		pause(2000);
 
 	}
-
-	/*
-	 * public void dynamic_pop_up() {
-	 * 
-	 * driver.get("https://enthrallit.com/course/dashboard/enrolls/"); Set<String>
-	 * widSet = driver.getWindowHandles(); if (widSet.size() > 1) {
-	 * 
-	 * driver.switchTo().window("handleBack()"); pause(5000); try { WebElement
-	 * elementonpopupElement = driver.findElement(By.id("customButton")); if
-	 * (elementonpopupElement.isDisplayed()) { pause(3000);
-	 * elementonpopupElement.click(); pause(4000); } }
-	 * 
-	 * catch (NoSuchElementException ne) {
-	 * System.out.println("Alert is displayed but colud not click on ok button");
-	 * 
-	 * } pause(5000);
-	 * 
-	 * }
-	 * 
-	 * }
-	 * 
-	 * public void try_to_click_oK() {
-	 * 
-	 * //driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-	 * driver.get("https://enthrallit.com/course/dashboard/enrolls/");
-	 * scrollIntoViewTheElementUsingJavascriptExecutor(driver,
-	 * rightClickActionElement); pause(2000); rightClickActionAccept(driver,
-	 * rightClickActionElement, clickBackButton); pause(2000); Set<String> widSet =
-	 * driver.getWindowHandles(); if (widSet.size() > 1) {
-	 * driver.switchTo().window("handleBack()"); pause(5000); } WebElement
-	 * elementonpopupElement = driver.findElement(By.id("customButton"));
-	 * 
-	 * if (elementonpopupElement.isDisplayed()) { pause(3000);
-	 * elementonpopupElement.click(); pause(4000); }
-	 * driver.switchTo().alert().accept(); pause(3000);
-	 * 
-	 * }
-	 */
 
 }
