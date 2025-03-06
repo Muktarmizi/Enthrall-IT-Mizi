@@ -1,5 +1,12 @@
 package baseUtil;
 
+import static utils.IConstant.CHROME;
+import static utils.IConstant.EDGE;
+import static utils.IConstant.FIREFOX;
+import static utils.IConstant.IMPLICITLY_WAIT;
+import static utils.IConstant.PAGELOAD_WAIT;
+import static utils.IConstant.URL;
+
 import java.lang.reflect.Method;
 import java.time.Duration;
 
@@ -29,10 +36,9 @@ import pages.Others;
 import reports.ExtentReportManager;
 import reports.TestManager;
 import utils.Configuration;
-import static utils.IConstant.*;
 
 public class BaseClass {
-	
+
 	public WebDriver driver;
 	public HomePage homePage;
 	public Login login;
@@ -92,8 +98,8 @@ public class BaseClass {
 			break;
 
 		default:
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
 			break;
 		}
 	}

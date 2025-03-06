@@ -1,45 +1,17 @@
 package pages;
 
-import java.awt.Button;
-import java.io.File;
-import java.time.Duration;
-import java.util.List;
-import java.util.Set;
-
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.Pause;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-
-import com.aventstack.extentreports.model.Video;
-import com.github.dockerjava.api.model.Driver;
-import com.google.common.base.Function;
-
-import constants.Attribute;
-import io.reactivex.rxjava3.functions.Action;
-import reports.Loggers;
-
-import java.time.Duration;
-
-import javax.swing.text.ChangedCharSetException;
-import javax.xml.xpath.XPath;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import static common.CommonActions.*;
-import static common.CommonWaits.*;
+import static common.CommonActions.clickElement;
+import static common.CommonActions.inputTextThenClickEnter;
+import static common.CommonActions.inputTextThenClickTab;
+import static common.CommonActions.pause;
+import static common.CommonActions.rightClickActionAccept;
+import static common.CommonActions.scrollIntoViewTheElementUsingJavascriptExecutor;
+import static common.CommonActions.selectDropdown;
+import static common.CommonActions.selectElelementFromDropdownOnebyOne;
+import static common.CommonActions.switchToChildWindow;
+import static common.CommonActions.validationOfHeader;
+import static common.CommonActions.verifyCurrentUrl;
+import static common.CommonActions.verifyTitle;
 
 import java.time.Duration;
 import java.util.List;
@@ -48,22 +20,17 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static common.CommonWaits.*;
-import org.openqa.selenium.support.ui.Select;
-import static common.CommonActions.*;
 
 public class Others {
-	
 
 	WebDriver driver;
 	WebDriverWait wait;
 	Login login;
 	HomePage homePage;
-	
+
 	public Others(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -250,10 +217,10 @@ public class Others {
 
 	@FindBy(xpath = "//input[@id='id_password']")
 	WebElement passWordAdd;
-	
+
 	@FindBy(xpath = "//*[@id='password_error']")
 	WebElement passErrorRequired;
-	
+
 	@FindBy(xpath = "//select[@id='id_gender']")
 	WebElement Gender;
 
@@ -439,79 +406,66 @@ public class Others {
 
 	@FindBy(xpath = "//*[text()='August Test Account']")
 	WebElement find_My_Name_Scroll_Down;
-	
+
 	@FindBy(xpath = "//*[@id='home_address_error']")
 	WebElement home_Address_1_error;
 
-    @FindBy(xpath = "//button[text()='Others']")
-    WebElement others_from_automation;
-    
-    
-    //OTHERE PAGE SELENIUM PRACTICE.
-    
-    
-    
-    @FindBy(xpath = "//h1[text()='Selenium Practice']")
-    WebElement selenium_practice_header;
-    
-    @FindBy(xpath = "//input[@id='exampleRadios1' and @class='form-check-input'][1]")
-    WebElement radio_button_1;
-    
-    @FindBy(xpath ="//*[contains (text(), 'Male' )]")
-    WebElement click_male;
-    
-    @FindBy(xpath = "//h5[text()='Multiple Select']")
-    WebElement scroll_down_to_Mutiple_select;
-    
-    @FindBy(xpath = "//label[contains (text(), 'Scie' )]")
-    WebElement checkbox_select_1;
-    
-    @FindBy(xpath = "//input[@type='checkbox' and @id='flexCheckDefault2']")
-    WebElement checkbox_select_2;
-    
-    @FindBy(xpath =  "//input[@type='checkbox' and @id='flexCheckDefault3']")
-    WebElement checkbox_select_3;
-    
-    @FindBy(xpath = "//h5[text()='Radio Button Example']")
-    WebElement scroll_down_to_radio_button;
-    
-    @FindBy(xpath = "//select[@class='form-control'] [1]")
-    WebElement select_drop_down_1;
-    
-    @FindBy(xpath = "//select[@class='form-control'] [1]/option")
-    List<WebElement> select_drop_down_list_1;
-    
-    @FindBy(xpath = "//select[@class='form-control'] [2]")
-    WebElement select_drop_down_2;
-    
-    @FindBy(xpath = "//select[@class='form-control'] [2]/option")
-    List<WebElement> select_drop_down_list_2;
-    
-    @FindBy(xpath = "//option[text()='Other'] [2]")
-    WebElement scroll_down_to_others;
-    
-    @FindBy(xpath = "//button[ contains (text(), 'Education Group') ]")
-    WebElement drop_down_1;
-    
-    @FindBy(xpath = "//button[ contains (text(), 'Highest Education') ]")
-    WebElement drop_down_2;
-    
-    @FindBy(xpath = "//button[ contains (text(), 'Primary Language') ]")
-    WebElement drop_down_3;
-    
-    
-    
-    
-    
-    
- 
-    
-    
-    
-    
-    public void landing_on_automation_click_to_others() {
-    	
-    	pause(2000);
+	@FindBy(xpath = "//button[text()='Others']")
+	WebElement others_from_automation;
+
+	// OTHERE PAGE SELENIUM PRACTICE.
+
+	@FindBy(xpath = "//h1[text()='Selenium Practice']")
+	WebElement selenium_practice_header;
+
+	@FindBy(xpath = "//input[@id='exampleRadios1' and @class='form-check-input'][1]")
+	WebElement radio_button_1;
+
+	@FindBy(xpath = "//*[contains (text(), 'Male' )]")
+	WebElement click_male;
+
+	@FindBy(xpath = "//h5[text()='Multiple Select']")
+	WebElement scroll_down_to_Mutiple_select;
+
+	@FindBy(xpath = "//label[contains (text(), 'Scie' )]")
+	WebElement checkbox_select_1;
+
+	@FindBy(xpath = "//input[@type='checkbox' and @id='flexCheckDefault2']")
+	WebElement checkbox_select_2;
+
+	@FindBy(xpath = "//input[@type='checkbox' and @id='flexCheckDefault3']")
+	WebElement checkbox_select_3;
+
+	@FindBy(xpath = "//h5[text()='Radio Button Example']")
+	WebElement scroll_down_to_radio_button;
+
+	@FindBy(xpath = "//select[@class='form-control'] [1]")
+	WebElement select_drop_down_1;
+
+	@FindBy(xpath = "//select[@class='form-control'] [1]/option")
+	List<WebElement> select_drop_down_list_1;
+
+	@FindBy(xpath = "//select[@class='form-control'] [2]")
+	WebElement select_drop_down_2;
+
+	@FindBy(xpath = "//select[@class='form-control'] [2]/option")
+	List<WebElement> select_drop_down_list_2;
+
+	@FindBy(xpath = "//option[text()='Other'] [2]")
+	WebElement scroll_down_to_others;
+
+	@FindBy(xpath = "//button[ contains (text(), 'Education Group') ]")
+	WebElement drop_down_1;
+
+	@FindBy(xpath = "//button[ contains (text(), 'Highest Education') ]")
+	WebElement drop_down_2;
+
+	@FindBy(xpath = "//button[ contains (text(), 'Primary Language') ]")
+	WebElement drop_down_3;
+
+	public void landing_on_automation_click_to_others() {
+
+		pause(2000);
 		clickElement(loginElement);
 		inputTextThenClickTab(useremailElement, "Mizimuktar0@gmail.com");
 		inputTextThenClickTab(userpassElement, "Password$1");
@@ -520,100 +474,81 @@ public class Others {
 		pause(2000);
 		switchToChildWindow(driver, others_from_automation);
 		pause(2000);
-		verifyCurrentUrl(driver,"https://enthrallit.com/selenium/");
-		verifyTitle(driver,"Enthrall IT");
-		validationOfHeader(selenium_practice_header,"Selenium Practice");
+		verifyCurrentUrl(driver, "https://enthrallit.com/selenium/");
+		verifyTitle(driver, "Enthrall IT");
+		validationOfHeader(selenium_practice_header, "Selenium Practice");
 		pause(2000);
-    }
-    
-    
-    
-    public void step_1_click_radio_button(){
-    	
+	}
 
-    	driver.get("https://enthrallit.com/selenium/");
-    	pause(2000);
-    	scrollIntoViewTheElementUsingJavascriptExecutor(driver,scroll_down_to_radio_button);
-        WebElement radio_button1 = driver.findElement(By.xpath("//*[contains (text(), 'Male' )]"));
-     	pause(2000);
-    	
-     	radio_button1.click();
-    	WebElement radio_button2 = driver.findElement(By.xpath("//label[contains (text(), 'Windows' )][1]"));
-     	pause(2000);
-    	radio_button2.click();
-    	
-    	WebElement radio_button3 = driver.findElement(By.xpath("//label[contains (text(), 'Gr' )][1]"));
-     	pause(2000);
-    	radio_button3.click();
-    	
-    }
-    	
-    	
-    
-    
-    public void step_2_click_check_box() {
-    	
-    	driver.get("https://enthrallit.com/selenium/");
-    	pause(2000);
-    	scrollIntoViewTheElementUsingJavascriptExecutor(driver,scroll_down_to_radio_button);
-    	pause(2000);
-    	WebElement check_box_1= driver.findElement(By.xpath("//label[contains (text(), 'Biolog' )][1]"));
-    	check_box_1.click();
-    	pause(2000);
-    	
-    	WebElement check_box_2= driver.findElement(By.xpath("//a[contains (text(), 'Ma' )]"));
-    	check_box_1.click();
-    	pause(2000);
-    	
-    	WebElement check_box_3= driver.findElement(By.xpath("//a[contains (text(), 'High Schoo' )]"));
-    	check_box_1.click();
-    	pause(2000);
-    	
-     }
-    
-    public void step_3_click_select_dropdown() {
-    	
-    	driver.get("https://enthrallit.com/selenium/");
-    	pause(2000);
-    	scrollIntoViewTheElementUsingJavascriptExecutor(driver,scroll_down_to_Mutiple_select);
-    	pause(2000);
-        selectElelementFromDropdownOnebyOne(select_drop_down_1, select_drop_down_list_1);
-        pause(2000);
-        selectDropdown(select_drop_down_1,"Employed" );
-        pause(2000);
-        
-    	
-    }
-    
-    public void step_4_drop_down() {
-    	
-    	driver.get("https://enthrallit.com/selenium/");
-    	pause(2000);
-    	scrollIntoViewTheElementUsingJavascriptExecutor(driver,scroll_down_to_Mutiple_select);
-    	pause(2000);
-    	inputTextThenClickTab(drop_down_1, "Biology");
-    	pause(2000);
-    	inputTextThenClickTab(drop_down_2,"High School");
-    	pause(2000);
-    	inputTextThenClickEnter(drop_down_3,"English");
-    	pause(2000);
-    	
-    	
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    public void step_one_click_right_click_action_then_click_back_button_then_submit_accept_1() {
-        driver.get("https://enthrallit.com/course/dashboard/enrolls/");
+	public void step_1_click_radio_button() {
+
+		driver.get("https://enthrallit.com/selenium/");
+		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_radio_button);
+		WebElement radio_button1 = driver.findElement(By.xpath("//*[contains (text(), 'Male' )]"));
+		pause(2000);
+
+		radio_button1.click();
+		WebElement radio_button2 = driver.findElement(By.xpath("//label[contains (text(), 'Windows' )][1]"));
+		pause(2000);
+		radio_button2.click();
+
+		WebElement radio_button3 = driver.findElement(By.xpath("//label[contains (text(), 'Gr' )][1]"));
+		pause(2000);
+		radio_button3.click();
+
+	}
+
+	public void step_2_click_check_box() {
+
+		driver.get("https://enthrallit.com/selenium/");
+		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_radio_button);
+		pause(2000);
+		WebElement check_box_1 = driver.findElement(By.xpath("//label[contains (text(), 'Biolog' )][1]"));
+		check_box_1.click();
+		pause(2000);
+
+		WebElement check_box_2 = driver.findElement(By.xpath("//a[contains (text(), 'Ma' )]"));
+		check_box_1.click();
+		pause(2000);
+
+		WebElement check_box_3 = driver.findElement(By.xpath("//a[contains (text(), 'High Schoo' )]"));
+		check_box_1.click();
+		pause(2000);
+
+	}
+
+	public void step_3_click_select_dropdown() {
+
+		driver.get("https://enthrallit.com/selenium/");
+		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_Mutiple_select);
+		pause(2000);
+		selectElelementFromDropdownOnebyOne(select_drop_down_1, select_drop_down_list_1);
+		pause(2000);
+		selectDropdown(select_drop_down_1, "Employed");
+		pause(2000);
+
+	}
+
+	public void step_4_drop_down() {
+
+		driver.get("https://enthrallit.com/selenium/");
+		pause(2000);
+		scrollIntoViewTheElementUsingJavascriptExecutor(driver, scroll_down_to_Mutiple_select);
+		pause(2000);
+		inputTextThenClickTab(drop_down_1, "Biology");
+		pause(2000);
+		inputTextThenClickTab(drop_down_2, "High School");
+		pause(2000);
+		inputTextThenClickEnter(drop_down_3, "English");
+		pause(2000);
+
+	}
+
+	public void step_one_click_right_click_action_then_click_back_button_then_submit_accept_1() {
+		driver.get("https://enthrallit.com/course/dashboard/enrolls/");
 		scrollIntoViewTheElementUsingJavascriptExecutor(driver, rightClickActionElement);
 		pause(2000);
 		rightClickActionAccept(driver, rightClickActionElement, clickBackButton);
@@ -623,82 +558,16 @@ public class Others {
 		pause(2000);
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/dashboard/automation/");
 		pause(2000);
-    }
-    
-    
-		
-		
-		/*alert = Alert(driver)
-           alert.accept()
-		 * 
-		 * Alert alert = driver.switchTo().alert();
-		System.out.println("\nAlert Text: " + alert.getText());
-		alert.accept();//not Working.
-		clickUsingJavascriptExecutor(driver, clickBackButton);
-		clickElementThenTab(clickBackButton);
-		pause(2000);
-		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/dashboard/automation/");
-		pause(2000);*/
+	}
 
-	
-	
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-	
-	
-	
-	
+	/*
+	 * alert = Alert(driver) alert.accept()
+	 *
+	 * Alert alert = driver.switchTo().alert(); System.out.println("\nAlert Text: "
+	 * + alert.getText()); alert.accept();//not Working.
+	 * clickUsingJavascriptExecutor(driver, clickBackButton);
+	 * clickElementThenTab(clickBackButton); pause(2000); verifyCurrentUrl(driver,
+	 * "https://enthrallit.com/dashboard/dashboard/automation/"); pause(2000);
+	 */
 
 }

@@ -1,19 +1,23 @@
 package pages;
 
+import static common.CommonActions.clickElement;
+import static common.CommonActions.elementEnabled;
+import static common.CommonActions.inputTextThenClickTab;
+import static common.CommonActions.pause;
+import static common.CommonActions.switchToChildWindow;
+import static common.CommonActions.validationOfOtherHeader;
+import static common.CommonActions.verifyCurrentUrl;
+import static common.CommonActions.verifyTitle;
+import static utils.IConstant.password;
+import static utils.IConstant.user_id;
+
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static common.CommonActions.*;
-import static common.CommonWaits.*;
-import reports.ExtentReportManager;
-import reports.TestManager;
-import utils.Configuration;
-import static utils.IConstant.*;
 
 public class Login {
 
@@ -104,11 +108,9 @@ public class Login {
 	@FindBy(xpath = "//button[text()='Enroll Now']")
 	WebElement enroll;
 
-
-	
 	public void login() {
-		
-        pause(2000);
+
+		pause(2000);
 		elementEnabled(loginHeader);
 		pause(2000);
 		clickElement(loginHeader);
@@ -130,7 +132,6 @@ public class Login {
 		verifyCurrentUrl(driver, "https://enthrallit.com/dashboard/");
 
 	}
-	
 
 	public void landing_on_dashboard_then_click_return_site_then_back_to_dashboard_then_logout() {
 
@@ -143,7 +144,7 @@ public class Login {
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
-		inputTextThenClickTab(useremailElement,user_id);
+		inputTextThenClickTab(useremailElement, user_id);
 		pause(2000);
 		inputTextThenClickTab(userpassElement, password);
 		pause(2000);
@@ -166,10 +167,10 @@ public class Login {
 	}
 
 	public void landing_on_automation_then_click_enroll_now() {
-		
+
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement, user_id);
+		inputTextThenClickTab(useremailElement, user_id); // config.properties.
 		inputTextThenClickTab(userpassElement, password);
 		clickElement(loginbuttonElement);
 		clickElement(automationElement);

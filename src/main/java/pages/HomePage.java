@@ -1,21 +1,30 @@
 package pages;
 
+import static common.CommonActions.clickElement;
+import static common.CommonActions.elementDisplayed;
+import static common.CommonActions.elementEnabled;
+import static common.CommonActions.inputTextThenClickTab;
+import static common.CommonActions.pause;
+import static common.CommonActions.scrollIntoViewTheElementUsingJavascriptExecutor;
+import static common.CommonActions.switchToChildWindow;
+import static common.CommonActions.validationOfHeader;
+import static common.CommonActions.validationOfOtherHeader;
+import static common.CommonActions.verifyCurrentUrl;
+import static common.CommonActions.verifyErrorMessageTopOfThePage;
+import static common.CommonActions.verifyTextOfTheWebElement;
+import static common.CommonActions.verifyTitle;
+import static utils.IConstant.password;
+import static utils.IConstant.user_id;
+
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import constants.Attribute;
-import static common.CommonActions.*;
-import static common.CommonWaits.*;
-
-import java.time.Duration;
-import java.util.List;
-import reports.ExtentReportManager;
-import reports.TestManager;
-import utils.Configuration;
-import static utils.IConstant.*;
-
 
 public class HomePage {
 
@@ -155,7 +164,7 @@ public class HomePage {
 	WebElement loginbuttonElement;
 	//// button[@id='login']
 
-	
+
 	
 	public void logo_validation() {
 		pause(3000);
@@ -175,45 +184,44 @@ public class HomePage {
 	}
 
 	public void landing_on_home_page_then_click_menu_section_step_one() {
-		
-		
+
 		// HOME.
 		pause(2000);
 		elementEnabled(homeHeader);
 		clickElement(homeHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/");
-		
+
 		// COURSES.
 		pause(2000);
 		elementEnabled(coursesHeader);
 		clickElement(coursesHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/courses/");
-		
+
 		// MENTORS.
 		pause(2000);
 		elementEnabled(mentorsHeader);
 		clickElement(mentorsHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/mentors/");
-		
+
 		// ALUMNI.
 		pause(2000);
 		elementEnabled(alumniHeader);
 		clickElement(alumniHeader);
 		verifyTitle(driver, "Enthrall IT");
 		verifyCurrentUrl(driver, "https://enthrallit.com/alumni/");
-		
+
 		// ABOUT US.
 		pause(2000);
 		elementEnabled(aboutusHeader);
 		clickElement(aboutusHeader);
 		verifyTitle(driver, "About us");
 		verifyCurrentUrl(driver, "https://enthrallit.com/about/");
-		
+
 		// LOGIN.
-	    pause(2000);
+		pause(2000);
 		elementEnabled(loginHeader);
 		clickElement(loginHeader);
 		verifyTitle(driver, "Enthrall IT");
@@ -319,7 +327,7 @@ public class HomePage {
 		pause(2000);
 		clickElement(loginElement);
 		pause(2000);
-		inputTextThenClickTab(useremailElement, user_id); 
+		inputTextThenClickTab(useremailElement, user_id);
 		pause(1000);
 		inputTextThenClickTab(userpassElement, password);
 		pause(1000);
@@ -334,7 +342,7 @@ public class HomePage {
 
 		pause(2000);
 		clickElement(loginElement);
-		inputTextThenClickTab(useremailElement,user_id);     // config.properties.
+		inputTextThenClickTab(useremailElement, user_id); // config.properties.
 		inputTextThenClickTab(userpassElement, password); // config.properties.
 		clickElement(loginbuttonElement);
 		clickElement(automationElement);

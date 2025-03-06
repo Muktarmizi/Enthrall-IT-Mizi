@@ -19,6 +19,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import com.google.common.io.Files;
 
@@ -26,20 +27,20 @@ import constants.Attribute;
 import reports.Loggers;
 
 public class CommonActions {
-	
+
 	WebDriver driver;
-	
+
 	// common method for click ()
 		public static void clickElement(WebElement element) {
 			try {
 				element.click();
 				Loggers.logTheTest(element + "<--------> has been clicked");
 			} catch (NoSuchElementException | NullPointerException e) {
-				Loggers.logTheTest(element + "<----------> has not been found\n" + e.getMessage()); 
+				Loggers.logTheTest(element + "<----------> has not been found\n" + e.getMessage());
 				// e.getMessage() and e.printStackTrace() give similar outcome
-			}		
+			}
 		}
-		
+
 		// common method for sleep()
 		public static void pause(long millis) {
 			try {
@@ -47,9 +48,9 @@ public class CommonActions {
 				Loggers.logTheTest("Sleeping ... zZz " + millis);
 			} catch (InterruptedException e) {
 				Loggers.logTheTest("Sleep interrupted because of ... " + e.getMessage());
-			}		
+			}
 		}
-		
+
 		// common method for sendKeys()
 		public static void inputText(WebElement element, String input) {
 			try {
@@ -57,18 +58,18 @@ public class CommonActions {
 				Loggers.logTheTest(input + " <-----> has been put into <-----> " + element);
 			} catch (NoSuchElementException | NullPointerException e) {
 				Loggers.logTheTest(element + "<----------> has not been found becuase of ...\n" + e.getMessage() );
-			}		
+			}
 		}
-		
+
 		public static void elementDisplayed(WebElement element) {
 			try {
 				boolean flag = element.isDisplayed();
 				Loggers.logTheTest(element + "<---------> is Displayed, " + flag);
 			} catch (NoSuchElementException | NullPointerException e) {
 				Loggers.logTheTest(element + "<----------> is not Displayed\n" + e.getMessage() );
-			}		
+			}
 		}
-		
+
 		public static void elementEnabled(WebElement element) {
 			try {
 				boolean flag = element.isEnabled();
@@ -77,7 +78,7 @@ public class CommonActions {
 				Loggers.logTheTest(element + "<----------> is not Displayed\n" + e.getMessage() );
 			}
 		}
-		
+
 		public static void elementSelected (WebElement element){
 			try {
 				boolean flag = element.isSelected();
@@ -86,7 +87,7 @@ public class CommonActions {
 				Loggers.logTheTest(element + "<----------> is not Displayed\n" + e.getMessage() );
 			}
 		}
-		
+
 		public static void verifyTitle(WebDriver driver, String expectedTitle) {
 			try {
 				String actualTitle = driver.getTitle();
@@ -96,21 +97,21 @@ public class CommonActions {
 				Loggers.logTheTest("Driver is not initiated properly Or Title doesn't match up");
 				Assert.fail();
 			}
-			
+
 		}
-		
+
 		public static void verifyCurrentUrl(WebDriver driver, String expectedURL) {
 			try {
 				String currentURL = driver.getCurrentUrl();
 				Loggers.logTheTest("Current URL : " + currentURL + ", Expected URL : " + expectedURL);
-				Assert.assertEquals(currentURL, expectedURL, "Current URL is not correct");	
+				Assert.assertEquals(currentURL, expectedURL, "Current URL is not correct");
 			} catch (NullPointerException e) {
 				Loggers.logTheTest("Driver is not initiated properly Or Current URL doesn't match");
 				Assert.fail();
 			}
-				
+
 		}
-		
+
 		public static void verifyTextOfTheWebElement(WebElement element, String expected) {
 			try {
 				String actual = element.getText();
@@ -120,7 +121,7 @@ public class CommonActions {
 				Loggers.logTheTest(element + "<----------> is not Displayed or Text doesn't match\n" + e.getMessage() );
 			}
 		}
-		
+
 		public static void clearTextFromTheField(WebElement element) {
 			try {
 				element.clear();
@@ -131,7 +132,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void validationOfHeader(WebElement element, String expectedHeader) {
 			try {
 				String actualHeader = element.getText();
@@ -144,7 +145,7 @@ public class CommonActions {
 			}
 
 		}
-		
+
 		public static void validationOfSubHeader(WebElement element, String expectedSubHeader) {
 			try {
 				String actualSubHeader = element.getText();
@@ -155,9 +156,9 @@ public class CommonActions {
 				Loggers.logTheTest(element + " : This element Not Found");
 				Assert.fail();
 			}
-		
+
 		}
-		
+
 		public static void validationOfOtherHeader(WebElement element, String expectedOtherHeader) {
 			try {
 				String actualOtherHeader = element.getText();
@@ -170,9 +171,9 @@ public class CommonActions {
 				Assert.fail();
 			}
 
-		}	
-		
-		
+		}
+
+
 		public static void selectElelementFromDropdownOnebyOne(WebElement element, List<WebElement> elements) {
 			try {
 				Select select = new Select(element);
@@ -188,8 +189,8 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
-		
+
+
 		// drop down by selectByVisibleText() is used as common action
 		public static void selectDropdown(WebElement element, String value) {
 			try {
@@ -202,7 +203,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void inputTextThenClickEnter(WebElement element, String input) {
 			try {
 				element.sendKeys(input, Keys.ENTER);
@@ -213,7 +214,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void inputTextThenClickReturn(WebElement element, String input) {
 			try {
 				element.sendKeys(input, Keys.RETURN);
@@ -224,7 +225,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void inputTextThenClickTab(WebElement element, String input) {
 			try {
 				element.sendKeys(input, Keys.TAB);
@@ -235,7 +236,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void clickElementThenTab(WebElement element) {
 			try {
 				element.sendKeys(Keys.TAB);
@@ -246,32 +247,32 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
-		
+
+
 		public static void clickUsingJavascriptExecutor(WebDriver driver, WebElement element) {
 			// JavascriptExecutor js = (JavascriptExecutor)driver; // instead of writing this 'js' object
 			// we can write below way, (JavascriptExecutor)driver is "js"
 			((JavascriptExecutor)driver).executeScript("arguments[0].click()", element);
 			Loggers.logTheTest("JavascriptExecutor executing ..." + " arguments[0].click()" + " to click on element ---> " + element);
 		}
-		
+
 		public static void inputTextUsingJavascriptExecutor(WebDriver driver, String script, WebElement element) {
 			((JavascriptExecutor) driver).executeScript(script, element);
 			Loggers.logTheTest("JavascriptExecutor executing ..." + script + " to input Text on element ---> " + element);
 		}
-		
+
 		public static void scrollIntoViewTheElementUsingJavascriptExecutor(WebDriver driver, WebElement element) {
 			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true)", element);
 			Loggers.logTheTest("JavascriptExecutor executing ..." + " arguments[0].scrollIntoView(true)" + " to input Text on element ---> " + element);
-		}	
-		
+		}
+
 		// This is for Enthrall IT photo upload common action, not needed for CMS
 		public static void uploadPhotoImage(WebElement element, String location) {
 			File file = new File(location);
 			element.sendKeys(file.getAbsolutePath());
 			pause(4000);
 		}
-		
+
 		// very very important interview question
 		// TakesScreenshot interface and getScreenshotAs method is used for taking screenshot
 		public static String getSreenShot(String testName, WebDriver driver) {
@@ -297,7 +298,7 @@ public class CommonActions {
 			}
 			return targetFile.getAbsolutePath();
 		}
-		
+
 		// Attribute is coming from package constants, we will check the outcome later
 		// Why String type see next method
 		public static String getAttributeValue(WebElement element, Attribute attribute) {
@@ -310,10 +311,10 @@ public class CommonActions {
 				e.printStackTrace();
 				Loggers.logTheTest(element + "<----------> has not been found\n" + e.getMessage() );
 				Assert.fail();
-			}			
+			}
 			return value;
 		}
-		
+
 		public static void verifyLengthOfTheFieldContent (WebElement element, Attribute attribute, String expectedLength) {
 			try {
 				String actualLength = getAttributeValue(element, attribute);
@@ -325,7 +326,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void verifyErrorMessageUnderTheField (WebElement element, Attribute attribute, String expectedErrorMessage) {
 			try {
 				String actualErrorMessage = getAttributeValue(element, attribute);
@@ -337,7 +338,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void verifyErrorMessageTopOfThePage (WebElement element, Attribute attribute, String expectedErrorMessage) {
 			try {
 				String actualErrorMessage = getAttributeValue(element, attribute) + " is a required field.";
@@ -349,7 +350,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		// This is build ONLY for Enthrall IT Actions class inside
 		public static void switchToChildWindow(WebDriver driver, WebElement element) {
 			try {
@@ -367,7 +368,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		// This is build ONLY for Enthrall IT Actions class inside
 		public static void mouseHoverAction (WebDriver driver,  WebElement hoverActionElement, WebElement elementNeedTobeClickFinally) {
 			try {
@@ -382,8 +383,8 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
-		
+
+
 		public static void rightClickActionAccept (WebDriver driver,  WebElement rightClickActionElement, WebElement elementNeedTobeClickFinally) {
 			try {
 				Actions actions = new Actions(driver);
@@ -394,9 +395,9 @@ public class CommonActions {
 				Loggers.logTheTest(elementNeedTobeClickFinally + " has been selected from the right click action ---> ");
 				pause(3000);
 				Alert alert = driver.switchTo().alert();
-				System.out.println("\nAlert Text: " + alert.getText());
+				System.out.println("Alert Text: " + alert.getText());
 				alert.accept();
-				pause(3000);			
+				pause(3000);
 				Loggers.logTheTest(elementNeedTobeClickFinally + " has been accepted from the Alert finally ---> ");
 			} catch (NoSuchElementException | NullPointerException e) {
 				e.printStackTrace();
@@ -404,7 +405,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void rightClickActionDismiss (WebDriver driver,  WebElement rightClickActionElement, WebElement elementNeedTobeClickFinally) {
 			try {
 				Actions actions = new Actions(driver);
@@ -415,9 +416,9 @@ public class CommonActions {
 				Loggers.logTheTest(elementNeedTobeClickFinally + " has been selected from the right click action ---> ");
 				pause(3000);
 				Alert alert = driver.switchTo().alert();
-				System.out.println("\nAlert Text: " + alert.getText());
+				System.out.println("Alert Text: " + alert.getText());
 				alert.dismiss();
-				pause(3000);			
+				pause(3000);
 				Loggers.logTheTest(elementNeedTobeClickFinally + " has been accepted from the Alert finally ---> ");
 			} catch (NoSuchElementException | NullPointerException e) {
 				e.printStackTrace();
@@ -425,7 +426,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void doubleClickActionAccept (WebDriver driver,  WebElement doubleClickActionElement) {
 			try {
 				Actions actions = new Actions(driver);
@@ -433,9 +434,9 @@ public class CommonActions {
 				Loggers.logTheTest(doubleClickActionElement + " has been performing the double click action ---> ");
 				pause(3000);
 				Alert alert = driver.switchTo().alert();
-				System.out.println("\nAlert Text: " + alert.getText());
+				System.out.println("Alert Text: " + alert.getText());
 				alert.accept();
-				pause(3000);			
+				pause(3000);
 				Loggers.logTheTest(doubleClickActionElement + " has been accepted from the Alert finally ---> ");
 			} catch (NoSuchElementException | NullPointerException e) {
 				e.printStackTrace();
@@ -443,7 +444,7 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
+
 		public static void doubleClickActionDismiss (WebDriver driver,  WebElement doubleClickActionElement) {
 			try {
 				Actions actions = new Actions(driver);
@@ -451,9 +452,9 @@ public class CommonActions {
 				Loggers.logTheTest(doubleClickActionElement + " has been performing the double click action ---> ");
 				pause(3000);
 				Alert alert = driver.switchTo().alert();
-				System.out.println("\nAlert Text: " + alert.getText());
+				System.out.println("Alert Text: " + alert.getText());
 				alert.dismiss();
-				pause(3000);			
+				pause(3000);
 				Loggers.logTheTest(doubleClickActionElement + " has been dismissed from the Alert finally ---> ");
 			} catch (NoSuchElementException | NullPointerException e) {
 				e.printStackTrace();
@@ -461,8 +462,8 @@ public class CommonActions {
 				Assert.fail();
 			}
 		}
-		
-		public static void findYourNameFromTheTable (WebElement elementOfYourname, String expected) {		
+
+		public static void findYourNameFromTheTable (WebElement elementOfYourname, String expected) {
 			// You have to create the web element like below
 			// try with @FindBy, if it does not work, then use By class to create element
 			// WebElement name = driver.findElement(By.cssSelector("table.navFooterMoreOnAmazon tr:nth-child(1) td:nth-child(7)"));
@@ -473,16 +474,15 @@ public class CommonActions {
 			} catch (NoSuchElementException | NullPointerException e) {
 				Loggers.logTheTest(elementOfYourname + "<----------> is not Displayed\n" + e.getMessage() );
 			}
-						
-		}
-		
-		
-			
+
 		}
 
-			
 
-	
-		
-		
-	
+
+		}
+
+
+
+
+
+
